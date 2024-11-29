@@ -1,0 +1,25 @@
+from typing import Optional
+
+from sqlalchemy.orm import Mapped, mapped_column
+
+from .base import Base, created_at
+from .mixins.int_id_pk import IntIdPkMixin
+
+# created_by_email
+# created_by_name
+# phone_number
+
+
+class UserVerificationCode(Base, IntIdPkMixin):
+    phone_number: Mapped[str] = mapped_column(unique=True)
+    code: Mapped[str]
+
+
+class User(Base, IntIdPkMixin):
+    name: Mapped[Optional[str]]
+    lastname: Mapped[Optional[str]]
+    user_photo: Mapped[Optional[str]]
+    email: Mapped[Optional[str]]
+
+    phone_number: Mapped[str]
+    created_at: Mapped[created_at]
