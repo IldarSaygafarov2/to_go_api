@@ -20,6 +20,7 @@ class RunConfig:
 class ApiV1Prefix:
     prefix: str = "/v1"
     auth: str = "/auth"
+    places: str = "/places"
 
 
 @dataclass

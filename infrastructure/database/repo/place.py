@@ -1,7 +1,9 @@
-from .base import BaseRepo
+from sqlalchemy import select, func
 from sqlalchemy.dialects.postgresql import insert
 
 from infrastructure.database.models import Place
+
+from .base import BaseRepo
 
 
 class PlaceRepo(BaseRepo):
@@ -67,4 +69,18 @@ class PlaceRepo(BaseRepo):
         result = await self.session.execute(stmt)
         await self.session.commit()
         return result.scalar_one()
-    
+
+    async def get_places(self, offset: int, limit: int):
+        stmt = select(Place).offset(offset).limit(limit)
+        result = await self.session.execute(stmt)
+        return result.scalars().all()
+
+    async def get_total_places(self):
+        stmt = select(func.count(Place.id))
+        result = await self.session.execute(stmt)
+        return result.scalar_one()
+
+    async def get_place(self, place_id: int):
+        stmt = select(Place).where(Place.id == place_id)
+        result = await self.session.execute(stmt)
+        return result.scalar_one_or_none()
