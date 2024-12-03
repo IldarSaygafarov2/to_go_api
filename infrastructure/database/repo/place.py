@@ -1,4 +1,5 @@
 from sqlalchemy import select, func
+from sqlalchemy.orm import selectinload
 from sqlalchemy.dialects.postgresql import insert
 
 from infrastructure.database.models import Place
@@ -71,7 +72,12 @@ class PlaceRepo(BaseRepo):
         return result.scalar_one()
 
     async def get_places(self, offset: int, limit: int):
-        stmt = select(Place).offset(offset).limit(limit)
+        stmt = (
+            select(Place)
+            .options(selectinload(Place.fuel_price))
+            .offset(offset)
+            .limit(limit)
+        )
         result = await self.session.execute(stmt)
         return result.scalars().all()
 

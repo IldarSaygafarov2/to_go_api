@@ -1,7 +1,8 @@
+from sqlalchemy import ForeignKey, false
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from .base import Base, created_at
 from .mixins.int_id_pk import IntIdPkMixin
-from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import false, ForeignKey
 
 
 class Place(Base, IntIdPkMixin):
@@ -32,32 +33,6 @@ class Place(Base, IntIdPkMixin):
 
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
 
+    fuel_price = relationship("PlaceFuelPrice", back_populates="place")
+
     created_at: Mapped[created_at]
-
-
-# name
-# category
-# address
-# coordinates
-# phone_number
-# yandex_map_link
-# gasoline
-# ai-80
-# ai-91
-# ai-95
-# ai-98
-# diesel
-# working_hours
-# wc
-# shop
-# cafe
-# parking
-# car_wash
-# tire_service
-
-# creation_date
-# gas
-# methane
-# propane
-# praying_room
-# electric_charging
