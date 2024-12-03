@@ -23,4 +23,12 @@ class SMSService:
         res = requests.post(
             url=f"{self.base_url}/message/sms/send", headers=headers, data=payload
         )
-        print(res)
+        print(res.json())
+
+    def get_templates(self):
+        token = self.__get_token()
+        res = requests.get(
+            f"{self.base_url}/users/templates",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        print(res.json())
