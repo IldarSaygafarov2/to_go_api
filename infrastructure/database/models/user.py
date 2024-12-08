@@ -1,6 +1,7 @@
 from typing import Optional
 
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 
 from .base import Base, created_at
 from .mixins.int_id_pk import IntIdPkMixin
@@ -16,10 +17,11 @@ class UserVerificationCode(Base, IntIdPkMixin):
 
 
 class User(Base, IntIdPkMixin):
-    name: Mapped[Optional[str]]
-    lastname: Mapped[Optional[str]]
+    fullname: Mapped[str] = mapped_column(nullable=True)
     user_photo: Mapped[Optional[str]]
     email: Mapped[Optional[str]]
 
     phone_number: Mapped[str]
     created_at: Mapped[created_at]
+
+    comments = relationship("PlaceComment", back_populates="user")

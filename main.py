@@ -1,17 +1,14 @@
 import uvicorn
-
 from fastapi import FastAPI
-
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from backend.api import router as api_router
-
 from backend.app.config import config
-from infrastructure.database.setup import create_engine, create_session_pool
-
 
 app = FastAPI()
 
+app.mount("/media/", StaticFiles(directory="media"), name="media")
 
 app.add_middleware(
     CORSMiddleware,

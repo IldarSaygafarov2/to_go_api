@@ -1,8 +1,9 @@
-from .base import BaseRepo
-
-from sqlalchemy import select
-from infrastructure.database.models import User, UserVerificationCode
+from sqlalchemy import select, update
 from sqlalchemy.dialects.postgresql import insert
+
+from infrastructure.database.models import User, UserVerificationCode
+
+from .base import BaseRepo
 
 
 class UserRepo(BaseRepo):
@@ -19,6 +20,22 @@ class UserRepo(BaseRepo):
         stmt = select(User).where(User.phone_number == phone_number)
         result = await self.session.execute(stmt)
         return result.scalar_one_or_none()
+
+    async def get_user_by_id(self, user_id: int):
+        stmt = select(User).where(User.id == user_id)
+        result = await self.session.execute(stmt)
+        return result.scalar_one_or_none()
+
+    async def update_user(self, user_id: int, fullname: str, user_photo: str):
+        stmt = (
+            update(User)
+            .values(fullname=fullname, user_photo=user_photo)
+            .where(User.id == user_id)
+            .returning(User)
+        )
+        updated = await self.session.execute(stmt)
+        await self.session.commit()
+        return updated.scalar_one()
 
 
 class UserVerificationCodeRepo(BaseRepo):

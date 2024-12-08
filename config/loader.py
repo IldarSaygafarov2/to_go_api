@@ -3,7 +3,7 @@ from typing import Optional
 
 from environs import Env
 
-from config.api_config import ApiPrefix, RunConfig, AccessTokenConfig
+from config.api_config import AccessTokenConfig, ApiPrefix, RunConfig
 from config.db_config import DbConfig
 from config.sms_config import SMSConfig
 

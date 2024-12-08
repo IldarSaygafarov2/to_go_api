@@ -6,8 +6,6 @@ class SMSService:
     base_url = config.sms.api_url
 
     def __get_token(self):
-        print(config.sms.auth_email)
-        print(config.sms.auth_secret_key)
         data = requests.post(
             url=f"{self.base_url}/auth/login/",
             data={

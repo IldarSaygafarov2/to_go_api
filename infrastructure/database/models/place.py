@@ -35,4 +35,24 @@ class Place(Base, IntIdPkMixin):
 
     fuel_price = relationship("PlaceFuelPrice", back_populates="place")
 
+    images: Mapped[list["PlaceImage"]] = relationship(back_populates="place")
+    comments: Mapped[list["PlaceComment"]] = relationship(back_populates="place")
+
     created_at: Mapped[created_at]
+
+
+class PlaceComment(Base, IntIdPkMixin):
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
+    place_id: Mapped[int] = mapped_column(ForeignKey("places.id", ondelete="CASCADE"))
+    text: Mapped[str]
+    created_at: Mapped[created_at]
+
+    place = relationship("Place", back_populates="comments")
+    user = relationship("User", back_populates="comments")
+
+
+class PlaceImage(Base, IntIdPkMixin):
+    place_id: Mapped[int] = mapped_column(ForeignKey("places.id", ondelete="CASCADE"))
+    url: Mapped[str]
+
+    place = relationship("Place", back_populates="images")

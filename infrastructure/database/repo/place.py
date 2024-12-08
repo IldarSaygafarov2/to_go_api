@@ -3,38 +3,40 @@ from sqlalchemy.orm import selectinload
 from sqlalchemy.dialects.postgresql import insert
 
 from infrastructure.database.models import Place
+from infrastructure.database.models.place import PlaceComment
 
 from .base import BaseRepo
 
 
 class PlaceRepo(BaseRepo):
+
     async def insert_place(
         self,
         name: str,
         category: str,
         address: str,
-        coordinates: str,
-        phone_number: str,
-        yandex_map_link: str,
-        has_gasoline: bool,
-        has_ai_80: bool,
-        has_ai_91: bool,
-        has_ai_95: bool,
-        has_ai_98: bool,
-        has_diesel: bool,
-        working_hours: str,
-        has_wc: bool,
-        has_wifi: bool,
-        has_shop: bool,
-        has_parking: bool,
-        has_car_wash: bool,
-        has_tire_service: bool,
-        has_gas: bool,
-        has_methane: bool,
-        has_propane: bool,
-        has_praying_room: bool,
-        has_electric_charging: bool,
         user_id: int,
+        coordinates: str = "",
+        phone_number: str = "",
+        yandex_map_link: str = "",
+        has_gasoline: bool = False,
+        has_ai_80: bool = False,
+        has_ai_91: bool = False,
+        has_ai_95: bool = False,
+        has_ai_98: bool = False,
+        has_diesel: bool = False,
+        working_hours: str = "",
+        has_wc: bool = False,
+        has_wifi: bool = False,
+        has_shop: bool = False,
+        has_parking: bool = False,
+        has_car_wash: bool = False,
+        has_tire_service: bool = False,
+        has_gas: bool = False,
+        has_methane: bool = False,
+        has_propane: bool = False,
+        has_praying_room: bool = False,
+        has_electric_charging: bool = False,
     ):
         stmt = (
             insert(Place)
@@ -87,6 +89,14 @@ class PlaceRepo(BaseRepo):
         return result.scalar_one()
 
     async def get_place(self, place_id: int):
-        stmt = select(Place).where(Place.id == place_id)
+        stmt = (
+            select(Place)
+            .where(Place.id == place_id)
+            .options(
+                selectinload(Place.images),
+                selectinload(Place.fuel_price),
+                selectinload(Place.comments).subqueryload(PlaceComment.user),
+            )
+        )
         result = await self.session.execute(stmt)
-        return result.scalar_one_or_none()
+        return result.scalar_one()

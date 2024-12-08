@@ -2,9 +2,11 @@ from dataclasses import dataclass
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from .place import PlaceRepo
-from .user import UserRepo, UserVerificationCodeRepo
 from .fuel import FuelRepo
+from .place import PlaceRepo
+from .place_image import PlaceImageRepo
+from .user import UserRepo, UserVerificationCodeRepo
+from .comments import PlaceCommentRepo
 
 
 @dataclass
@@ -26,3 +28,11 @@ class RequestsRepo:
     @property
     def fuel(self) -> FuelRepo:
         return FuelRepo(self.session)
+
+    @property
+    def place_images(self) -> PlaceImageRepo:
+        return PlaceImageRepo(self.session)
+
+    @property
+    def place_comments(self) -> PlaceCommentRepo:
+        return PlaceCommentRepo(self.session)

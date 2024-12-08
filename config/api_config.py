@@ -21,6 +21,7 @@ class ApiV1Prefix:
     prefix: str = "/v1"
     auth: str = "/auth"
     places: str = "/places"
+    users: str = "/users"
 
 
 @dataclass
