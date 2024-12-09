@@ -1,9 +1,9 @@
-from sqlalchemy import select, func
-from sqlalchemy.orm import selectinload
-from sqlalchemy.dialects.postgresql import insert
+from sqlalchemy import func, select
 
-from infrastructure.database.models import Place
-from infrastructure.database.models.place import PlaceComment
+from sqlalchemy.dialects.postgresql import insert
+from sqlalchemy.orm import selectinload
+
+from infrastructure.database.models.place import Place, PlaceComment, PlaceRating
 
 from .base import BaseRepo
 

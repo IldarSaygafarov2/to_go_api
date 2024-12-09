@@ -14,23 +14,24 @@ router = APIRouter(
 )
 
 
-@router.get("/{user_id}/profile")
+@router.get("/{phone_number}/profile")
 async def get_user_profile(
-    user_id: int,
+    phone_number: str,
     repo: Annotated[RequestsRepo, Depends(get_repo)],
 ) -> UserProfileDTO:
-    profile = await repo.users.get_user_by_id(user_id=user_id)
+    profile = await repo.users.get_user_by_phone_number(phone_number=phone_number)
     return UserProfileDTO.model_validate(profile, from_attributes=True)
 
 
-@router.patch("/{user_id}/profile/update/")
+@router.patch("/{phone_number}/profile/update/")
 async def update_user_profile(
-    user_id: int,
+    phone_number: str,
     repo: Annotated[RequestsRepo, Depends(get_repo)],
     fullname: str = Body(...),
     user_photo: Optional[UploadFile] = File(None),
 ) -> UserProfileDTO:
-    _dir = create_user_profile_dir(user_id)
+    user = await repo.users.get_user_by_phone_number(phone_number=phone_number)
+    _dir = create_user_profile_dir(user.id)
 
     file_name = user_photo.filename
     path = _dir / file_name
@@ -38,7 +39,7 @@ async def update_user_profile(
         file.write(await user_photo.read())
 
     user_profile = await repo.users.update_user(
-        user_id=user_id,
+        user_id=user.id,
         fullname=fullname,
         user_photo=str(path),
     )

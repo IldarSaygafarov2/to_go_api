@@ -1,8 +1,18 @@
+import enum
 from sqlalchemy import ForeignKey, false
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.dialects import postgresql as psql
 
 from .base import Base, created_at
 from .mixins.int_id_pk import IntIdPkMixin
+
+
+class PlaceRatingEnum(int, enum.Enum):
+    one = 1
+    two = 2
+    three = 3
+    four = 4
+    five = 5
 
 
 class Place(Base, IntIdPkMixin):
@@ -37,6 +47,7 @@ class Place(Base, IntIdPkMixin):
 
     images: Mapped[list["PlaceImage"]] = relationship(back_populates="place")
     comments: Mapped[list["PlaceComment"]] = relationship(back_populates="place")
+    rating: Mapped["PlaceRating"] = relationship(back_populates="place")
 
     created_at: Mapped[created_at]
 
@@ -56,3 +67,18 @@ class PlaceImage(Base, IntIdPkMixin):
     url: Mapped[str]
 
     place = relationship("Place", back_populates="images")
+
+
+class PlaceRating(Base, IntIdPkMixin):
+    place_id: Mapped[int] = mapped_column(
+        ForeignKey("places.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+
+    rating: Mapped[int]
+
+    place = relationship("Place", back_populates="rating")

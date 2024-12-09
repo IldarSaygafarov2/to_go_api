@@ -34,7 +34,7 @@ class ApiPrefix:
 class AccessTokenConfig:
     token_secret: str
     algorith: str = "HS256"
-    token_expire_seconds: int = 3600
+    token_expire_seconds: int = 86400
 
     @staticmethod
     def from_env(env: Env):

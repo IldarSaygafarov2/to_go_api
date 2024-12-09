@@ -12,6 +12,8 @@ from backend.core.interfaces.place import (
     PlaceListDTO,
     PlaceCommentDTO,
     PlaceCommentCreateDTO,
+    PlaceRatingDTO,
+    PlaceRatingCreateDTO,
 )
 
 from infrastructure.database.repo.requests import RequestsRepo
@@ -53,17 +55,41 @@ async def get_places(
     offset: int = 1,
     limit: int = 14,
 ) -> PaginatedPlacesDTO:
-    places = await repo.places.get_places(offset=offset, limit=limit)
-    places = [
-        PlaceListDTO.model_validate(place, from_attributes=True) for place in places
-    ]
+
+    places = []
+
+    db_places = await repo.places.get_places(offset=offset, limit=limit)
+    for place in db_places:
+        rating, count = await repo.place_rating.get_place_rating(place_id=place.id)
+        if rating is not None and count:
+            _rating = rating / count
+        else:
+            _rating = 0
+
+        places.append(
+            {
+                "id": place.id,
+                "name": place.name,
+                "category": place.category,
+                "address": place.address,
+                "coordinates": place.coordinates,
+                "working_hours": place.working_hours,
+                "rating": _rating,
+                "fuel_price": place.fuel_price,
+            }
+        )
+    # places = [
+    #     PlaceListDTO.model_validate(place, from_attributes=True) for place in places
+    # ]
     total_places = await repo.places.get_total_places()
-    return PaginatedPlacesDTO(
-        total=total_places,
-        limit=limit,
-        offset=offset,
-        places=places,
-    )
+
+    result = {
+        "total": total_places,
+        "limit": limit,
+        "offset": offset,
+        "places": places,
+    }
+    return result
 
 
 @router.get("/{place_id}")
@@ -101,3 +127,19 @@ async def create_place_fuel_type(
         price=fuel_data.price,
     )
     return FuelDTO.model_validate(new_fuel, from_attributes=True)
+
+
+@router.post("/{place_id}/rating/add/")
+async def add_rating_to_place(
+    place_id: int,
+    repo: Annotated[RequestsRepo, Depends(get_repo)],
+    place_rating_data: PlaceRatingCreateDTO,
+):
+    rating = await repo.place_rating.add_rating(
+        place_id=place_id,
+        user_id=place_rating_data.user_id,
+        rating=place_rating_data.rating,
+    )
+    if rating is None:
+        return {"detail": "vote already added"}
+    return PlaceRatingDTO.model_validate(rating, from_attributes=True)

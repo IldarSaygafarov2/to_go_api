@@ -17,7 +17,10 @@ class LoginUserInteractor:
 
         access_token = self.jwt_service.create_access_token(
             {
-                "sub": login_user.phone_number,
+                "sub": {
+                    "phone_number": login_user.phone_number,
+                    "id": user.id,
+                },
             }
         )
         return access_token

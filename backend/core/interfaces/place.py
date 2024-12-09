@@ -15,6 +15,7 @@ class PlaceListDTO(BaseModel):
     working_hours: Optional[str]
     address: Optional[str]
     coordinates: Optional[str]
+    rating: float
     fuel_price: Optional[list[FuelDTO]]
 
 
@@ -84,3 +85,14 @@ class PaginatedPlacesDTO(BaseModel):
     limit: int
     offset: int
     places: list[PlaceListDTO]
+
+
+class PlaceRatingCreateDTO(BaseModel):
+    user_id: int
+    rating: int
+
+
+class PlaceRatingDTO(BaseModel):
+    place_id: int
+    user_id: int
+    rating: int
