@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Optional
 
 from pydantic import BaseModel
 
@@ -12,7 +13,7 @@ class FuelCreateDTO(BaseModel):
 
 class FuelDTO(BaseModel):
     id: int
-    fuel_type: FuelType
+    fuel_type: Optional[FuelType]
     place_id: int
     price: int
     created_at: datetime

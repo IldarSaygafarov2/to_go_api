@@ -16,6 +16,7 @@ class PlaceRatingEnum(int, enum.Enum):
 
 
 class Place(Base, IntIdPkMixin):
+    row_id: Mapped[str] = mapped_column(nullable=True)
     name: Mapped[str]
     category: Mapped[str]
     address: Mapped[str]
@@ -33,6 +34,7 @@ class Place(Base, IntIdPkMixin):
     has_wifi: Mapped[bool] = mapped_column(default=false())
     has_shop: Mapped[bool] = mapped_column(default=false())
     has_parking: Mapped[bool] = mapped_column(default=false())
+    has_cafe: Mapped[bool] = mapped_column(default=false())
     has_car_wash: Mapped[bool] = mapped_column(default=false())
     has_tire_service: Mapped[bool] = mapped_column(default=false())
     has_gas: Mapped[bool] = mapped_column(default=false())

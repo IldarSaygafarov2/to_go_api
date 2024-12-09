@@ -16,6 +16,7 @@ async def add_mock_places(session: AsyncSession):
         try:
             place = Place(
                 name=obj["name"],
+                row_id=obj["🔒 Row ID"],
                 category=obj["category"],
                 address=obj["address"],
                 coordinates=obj["coordinates"],
@@ -31,6 +32,7 @@ async def add_mock_places(session: AsyncSession):
                 has_wc=obj["wc"],
                 has_wifi=obj["wifi"],
                 has_shop=obj["shop"],
+                has_cafe=obj["cafe"],
                 has_parking=obj["parking"],
                 has_car_wash=obj["car_wash"],
                 has_tire_service=obj["tire_service"],
@@ -39,9 +41,8 @@ async def add_mock_places(session: AsyncSession):
                 has_propane=obj["propane"],
                 has_praying_room=obj["praying_room"],
                 has_electric_charging=obj["electric_charging"],
-                user_id=1,
+                user_id=2,
             )
-            print(obj["name"])
             places.append(place)
         except Exception as e:
             continue

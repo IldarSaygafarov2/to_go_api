@@ -83,6 +83,11 @@ class PlaceRepo(BaseRepo):
         result = await self.session.execute(stmt)
         return result.scalars().all()
 
+    async def get_all_places(self):
+        stmt = select(Place)
+        result = await self.session.execute(stmt)
+        return result.scalars().all()
+
     async def get_total_places(self):
         stmt = select(func.count(Place.id))
         result = await self.session.execute(stmt)

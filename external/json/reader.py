@@ -31,6 +31,8 @@ def _convert_empty_values(json_object: dict):
             print(json_object[key])
             if value == "":
                 json_object[key] = False
+            else:
+                json_object[key] = True
     return json_object
 
 
@@ -45,6 +47,7 @@ def get_test_places(path: str):
     return _collect_data(content)
 
 
-from pprint import pprint
-
-# pprint(get_test_places("external/data/places.json"))
+def load_json(path: str):
+    with open(path, "r", encoding="utf-8") as file:
+        content = json.load(file)
+    return content

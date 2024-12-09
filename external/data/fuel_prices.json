@@ -1,0 +1,1386 @@
+[
+    {
+        "🔒 Row ID": "vjYzORO1QVu1gIXx7q1spg",
+        "stationID": "5C1FDZ2iQWqR70TIKDl8jw",
+        "fuel_type": "Дизель",
+        "price": 12500,
+        "creation_date": "08/10/2024, 22:59:40",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "KNkP5rVyRKC6mQ6gop21xQ",
+        "stationID": "5C1FDZ2iQWqR70TIKDl8jw",
+        "fuel_type": "Метан",
+        "price": "",
+        "creation_date": "08/10/2024, 22:59:40",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "FdYtR56NTb249aRYrLsyzg",
+        "stationID": "5C1FDZ2iQWqR70TIKDl8jw",
+        "fuel_type": "Пропан",
+        "price": "",
+        "creation_date": "08/10/2024, 22:59:40",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "axtDzZWXSA2X1TGMzzSMow",
+        "stationID": "5C1FDZ2iQWqR70TIKDl8jw",
+        "fuel_type": "АИ-91",
+        "price": "",
+        "creation_date": "08/10/2024, 22:59:40",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "JCMs4Ma.RjCbdkdnMpDyew",
+        "stationID": "5C1FDZ2iQWqR70TIKDl8jw",
+        "fuel_type": "АИ-98",
+        "price": "",
+        "creation_date": "08/10/2024, 22:59:40",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "L8BCf4jyR-CRQE-MMqnT4Q",
+        "stationID": "VNIbK.bkT8uqGpD3D4bA7g",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "11/10/2024, 16:34:47",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "skPl59G-ROOv3Jste-Elpg",
+        "stationID": "VNIbK.bkT8uqGpD3D4bA7g",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "11/10/2024, 16:35:07",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "6D8rcrGaSwqCQC4Lut.kUA",
+        "stationID": "VNIbK.bkT8uqGpD3D4bA7g",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "11/10/2024, 16:35:27",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "KdUaVECfQXayTfiz5jz1Ww",
+        "stationID": "VNIbK.bkT8uqGpD3D4bA7g",
+        "fuel_type": "Дизель",
+        "price": 12500,
+        "creation_date": "11/10/2024, 16:35:47",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "s2NGaWXzQxCY2Wz.VA1Vtw",
+        "stationID": "OVf.Hb6hRUOzW1fcacYDWQ",
+        "fuel_type": "Дизель",
+        "price": 13000,
+        "creation_date": "11/10/2024, 16:36:38",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "wSBuLn.0RYuDUcSiaxV0kw",
+        "stationID": "OVf.Hb6hRUOzW1fcacYDWQ",
+        "fuel_type": "АИ-80",
+        "price": 7500,
+        "creation_date": "11/10/2024, 16:36:59",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "aFRE.S0YRnSYZMUXmP9JQg",
+        "stationID": "OVf.Hb6hRUOzW1fcacYDWQ",
+        "fuel_type": "АИ-92",
+        "price": 9700,
+        "creation_date": "11/10/2024, 16:37:20",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "Smb8wHl.S0Wmho0Jjfh3Bw",
+        "stationID": "OVf.Hb6hRUOzW1fcacYDWQ",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "11/10/2024, 16:37:47",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "7I.eYLdAQTCBlLIgmy.tJw",
+        "stationID": "t9ByEHyhTPCm.AUwsUNPsw",
+        "fuel_type": "АИ-80",
+        "price": 7900,
+        "creation_date": "11/10/2024, 16:39:08",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "GiQ1l4gpSgi9c8Ht8nHz-g",
+        "stationID": "t9ByEHyhTPCm.AUwsUNPsw",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "11/10/2024, 16:39:47",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "x39l6vhLTm-4oQNCasgSHw",
+        "stationID": "t9ByEHyhTPCm.AUwsUNPsw",
+        "fuel_type": "АИ-95",
+        "price": 13000,
+        "creation_date": "11/10/2024, 16:40:37",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "PveVcZSVRUWLK0xF2tJYzA",
+        "stationID": "t9ByEHyhTPCm.AUwsUNPsw",
+        "fuel_type": "АИ-98",
+        "price": 15800,
+        "creation_date": "11/10/2024, 16:40:57",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "J7VC38CZQf-BzIORWQL-Kw",
+        "stationID": "5iW-Ukc2S6OL6NL4j32lZg",
+        "fuel_type": "АИ-80",
+        "price": 7900,
+        "creation_date": "11/10/2024, 16:43:57",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "g0Vlz-.2TaCbyQy.0vdJzQ",
+        "stationID": "5iW-Ukc2S6OL6NL4j32lZg",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "11/10/2024, 16:44:08",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "FBJTBqfpSbCuBtwq7e0yAQ",
+        "stationID": "5iW-Ukc2S6OL6NL4j32lZg",
+        "fuel_type": "АИ-92",
+        "price": 10200,
+        "creation_date": "11/10/2024, 16:44:57",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "sG5ymzGBRz214.rrxPqHhw",
+        "stationID": "5iW-Ukc2S6OL6NL4j32lZg",
+        "fuel_type": "АИ-95",
+        "price": 12000,
+        "creation_date": "11/10/2024, 16:45:27",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "75og63MzTOuPAbd1v3b4nA",
+        "stationID": "5iW-Ukc2S6OL6NL4j32lZg",
+        "fuel_type": "Дизель",
+        "price": 12200,
+        "creation_date": "11/10/2024, 16:45:47",
+        "station_name_from_form": ""
+    },
+    {
+        "🔒 Row ID": "ujOaQgjhTdOween8-icJCQ",
+        "stationID": "AU.JUTsMQCGOPhYannhMjw",
+        "fuel_type": "Дизель",
+        "price": 2555,
+        "creation_date": "20/10/2024, 4:21:07",
+        "station_name_from_form": "Tok Bor"
+    },
+    {
+        "🔒 Row ID": "8tbP8oj6Toa2UnmG1XU5.w",
+        "stationID": "3VQuhTpQRim-dtCjTTw3bQ",
+        "fuel_type": "Метан",
+        "price": 1500,
+        "creation_date": "20/10/2024, 14:36:10",
+        "station_name_from_form": 1
+    },
+    {
+        "🔒 Row ID": "a.BHEUsB9SMGv8xlCeZyZRQ",
+        "stationID": "OVf.Hb6hRUOzW1fcacYDWQ",
+        "fuel_type": "",
+        "price": "",
+        "creation_date": "20/10/2024, 21:13:49",
+        "station_name_from_form": "Arena Petrol & Cng"
+    },
+    {
+        "🔒 Row ID": "p6ShdljTShiBGEC6ewE60g",
+        "stationID": "OVf.Hb6hRUOzW1fcacYDWQ",
+        "fuel_type": "Дизель",
+        "price": 10000,
+        "creation_date": "26/10/2024, 8:07:08",
+        "station_name_from_form": "Arena Petrol & Cng"
+    },
+    {
+        "🔒 Row ID": "d6eAd9-9TQezDfbHAASzrg",
+        "stationID": "OVf.Hb6hRUOzW1fcacYDWQ",
+        "fuel_type": "Пропан",
+        "price": 13000,
+        "creation_date": "26/10/2024, 8:07:58",
+        "station_name_from_form": "Arena Petrol & Cng"
+    },
+    {
+        "🔒 Row ID": "vLx5017FTB6FP468TwHgAA",
+        "stationID": "8mn0e5iZRWSRzpowEA-0AQ",
+        "fuel_type": "АИ-95",
+        "price": 14700,
+        "creation_date": "01/11/2024, 3:52:26",
+        "station_name_from_form": "TatNeft"
+    },
+    {
+        "🔒 Row ID": "3fyCoS4GSka3ASnynHwOPw",
+        "stationID": "5C1FDZ2iQWqR70TIKDl8jw",
+        "fuel_type": "АИ-95",
+        "price": 14700,
+        "creation_date": "01/11/2024, 3:55:15",
+        "station_name_from_form": "Tatneft"
+    },
+    {
+        "🔒 Row ID": "wMoiOGPhQquvfXUUZ5L7DA",
+        "stationID": "0TxDzvHJRIeDJlRzLN1HQA",
+        "fuel_type": "АИ-95",
+        "price": 11500,
+        "creation_date": "01/11/2024, 4:22:03",
+        "station_name_from_form": "Uzneftgaz"
+    },
+    {
+        "🔒 Row ID": "zuSwsX0PSm2K7uaNbglgJQ",
+        "stationID": "dxwCAZAIREO3V5mkSrbUtw",
+        "fuel_type": "АИ-80",
+        "price": 8300,
+        "creation_date": "01/11/2024, 7:43:37",
+        "station_name_from_form": "Мустанг"
+    },
+    {
+        "🔒 Row ID": "WbxDMmS3S-CBwDySmeAf0w",
+        "stationID": "VBa2j9DNRQGIXRaJHNuz.g",
+        "fuel_type": "АИ-80",
+        "price": 8400,
+        "creation_date": "01/11/2024, 18:59:35",
+        "station_name_from_form": "Intran Servis"
+    },
+    {
+        "🔒 Row ID": "LZDxLJC3Qpurh7UnOakVIA",
+        "stationID": "VBa2j9DNRQGIXRaJHNuz.g",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "01/11/2024, 18:59:55",
+        "station_name_from_form": "Intran Servis"
+    },
+    {
+        "🔒 Row ID": "inleV9lJSJyUoBo-5RZTbA",
+        "stationID": "VBa2j9DNRQGIXRaJHNuz.g",
+        "fuel_type": "АИ-95",
+        "price": 13000,
+        "creation_date": "01/11/2024, 19:00:15",
+        "station_name_from_form": "Intran Servis"
+    },
+    {
+        "🔒 Row ID": "ClbYp71STwmi4Y31s9zQZQ",
+        "stationID": "VBa2j9DNRQGIXRaJHNuz.g",
+        "fuel_type": "АИ-98",
+        "price": 16500,
+        "creation_date": "01/11/2024, 19:00:25",
+        "station_name_from_form": "Intran Servis"
+    },
+    {
+        "🔒 Row ID": "jELe.-WdQkaOcs0f7liV5A",
+        "stationID": "AZj9Y3VMQeG3TnNgFE2DYQ",
+        "fuel_type": "АИ-80",
+        "price": 7800,
+        "creation_date": "01/11/2024, 19:20:14",
+        "station_name_from_form": "IBR Petroleum station"
+    },
+    {
+        "🔒 Row ID": "fYvEC3hLQW2q8HfypwFzFQ",
+        "stationID": "AZj9Y3VMQeG3TnNgFE2DYQ",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "01/11/2024, 19:20:34",
+        "station_name_from_form": "IBR Petroleum station"
+    },
+    {
+        "🔒 Row ID": "gKH1401zRGeeWPqBE537Jg",
+        "stationID": "AZj9Y3VMQeG3TnNgFE2DYQ",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "01/11/2024, 19:20:54",
+        "station_name_from_form": "IBR Petroleum station"
+    },
+    {
+        "🔒 Row ID": "5nKvdVL8TG2-2zRFOawpSw",
+        "stationID": "OsJrPLCJTQOWvPlmy2W-zw",
+        "fuel_type": "АИ-80",
+        "price": 8300,
+        "creation_date": "01/11/2024, 20:21:01",
+        "station_name_from_form": "Mustang"
+    },
+    {
+        "🔒 Row ID": "J7GN4BiYRdWir-BTLmasLw",
+        "stationID": "OsJrPLCJTQOWvPlmy2W-zw",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "01/11/2024, 20:21:12",
+        "station_name_from_form": "Mustang"
+    },
+    {
+        "🔒 Row ID": "njCgD855Qw-tHCfxx0APmg",
+        "stationID": "OsJrPLCJTQOWvPlmy2W-zw",
+        "fuel_type": "АИ-95",
+        "price": 13000,
+        "creation_date": "01/11/2024, 20:21:31",
+        "station_name_from_form": "Mustang"
+    },
+    {
+        "🔒 Row ID": "JfbwH4i1S96o52TBH2DEkA",
+        "stationID": "lQs.XlAVR1ifCPRZWyfkfA",
+        "fuel_type": "АИ-80",
+        "price": 7300,
+        "creation_date": "02/11/2024, 7:30:52",
+        "station_name_from_form": "SEG TASCO"
+    },
+    {
+        "🔒 Row ID": "6Zy9tmpaShWMWwJlaGkhFA",
+        "stationID": "lQs.XlAVR1ifCPRZWyfkfA",
+        "fuel_type": "АИ-92",
+        "price": 9800,
+        "creation_date": "02/11/2024, 7:31:23",
+        "station_name_from_form": "SEG TASCO"
+    },
+    {
+        "🔒 Row ID": "y9glSgAFRsucy.fT-Ta3-Q",
+        "stationID": "lQs.XlAVR1ifCPRZWyfkfA",
+        "fuel_type": "АИ-95",
+        "price": 13500,
+        "creation_date": "02/11/2024, 7:31:26",
+        "station_name_from_form": "SEG TASCO"
+    },
+    {
+        "🔒 Row ID": "EsXlE.W9SZGXnXPIStKdxQ",
+        "stationID": "lQs.XlAVR1ifCPRZWyfkfA",
+        "fuel_type": "АИ-98",
+        "price": 15000,
+        "creation_date": "02/11/2024, 7:31:42",
+        "station_name_from_form": "SEG TASCO"
+    },
+    {
+        "🔒 Row ID": "a-nfaoyBiTzK9yECOshTxjA",
+        "stationID": "Sbwz7XSTSb61C5YCqPmT7w",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 7:50:28",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "rl43Gn.XTLGXwxW9qTFQHw",
+        "stationID": "Sbwz7XSTSb61C5YCqPmT7w",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 7:51:08",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "79Z3SHJeQK2lB-8acjxqqg",
+        "stationID": "Sbwz7XSTSb61C5YCqPmT7w",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "02/11/2024, 7:51:18",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "5H4kGUYAQDiXIkPOPWQoWQ",
+        "stationID": "dWo8MQKhQdSuve.VIOyx-Q",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 8:00:02",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "xgZ1CN5ETOOc6pXu4ysquQ",
+        "stationID": "dWo8MQKhQdSuve.VIOyx-Q",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "02/11/2024, 8:00:12",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "23MWOBwBTxuOJRqqCvqdvA",
+        "stationID": "dWo8MQKhQdSuve.VIOyx-Q",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 8:00:41",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "9zjt8eukQk2qBSdSRx985w",
+        "stationID": "dWo8MQKhQdSuve.VIOyx-Q",
+        "fuel_type": "Дизель",
+        "price": 12500,
+        "creation_date": "02/11/2024, 8:01:11",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "FJ0HY3EER5CJJthlfAXGyg",
+        "stationID": "iV6nNoFYS0yXmUXKDK7iFw",
+        "fuel_type": "АИ-80",
+        "price": 7700,
+        "creation_date": "02/11/2024, 8:13:57",
+        "station_name_from_form": "Petrol"
+    },
+    {
+        "🔒 Row ID": "CGwEFmGAQ5OSWOAN6jCRhQ",
+        "stationID": "iV6nNoFYS0yXmUXKDK7iFw",
+        "fuel_type": "АИ-92",
+        "price": 10400,
+        "creation_date": "02/11/2024, 8:14:07",
+        "station_name_from_form": "Petrol"
+    },
+    {
+        "🔒 Row ID": "tea55-DzSJ65ot9F9Bcrfw",
+        "stationID": "JieKMQnxSs-BhA35Z1IZAg",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 8:30:27",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "H6GnLwB4SkilWt7aL-CMkg",
+        "stationID": "JieKMQnxSs-BhA35Z1IZAg",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 8:30:37",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "4ydHD4Q2TDqyikaulKGh6w",
+        "stationID": "JieKMQnxSs-BhA35Z1IZAg",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "02/11/2024, 8:30:47",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "rLrl7-AfQMu9cdG95Ktbbg",
+        "stationID": "ZNqEB1w.Rly4AxJJ7NWbqw",
+        "fuel_type": "АИ-80",
+        "price": 8300,
+        "creation_date": "02/11/2024, 8:43:04",
+        "station_name_from_form": "UZMAXOIL"
+    },
+    {
+        "🔒 Row ID": "wcyPgt73TGuY0fk023lL6g",
+        "stationID": "ZNqEB1w.Rly4AxJJ7NWbqw",
+        "fuel_type": "АИ-92",
+        "price": 10200,
+        "creation_date": "02/11/2024, 8:43:14",
+        "station_name_from_form": "UZMAXOIL"
+    },
+    {
+        "🔒 Row ID": "a-GsfyRJNRy24VsU8E6tkCQ",
+        "stationID": "ZNqEB1w.Rly4AxJJ7NWbqw",
+        "fuel_type": "АИ-95",
+        "price": 11700,
+        "creation_date": "02/11/2024, 8:43:34",
+        "station_name_from_form": "UZMAXOIL"
+    },
+    {
+        "🔒 Row ID": "tTNMU6iiTEuMQn-uEb5p9w",
+        "stationID": "ZNqEB1w.Rly4AxJJ7NWbqw",
+        "fuel_type": "Дизель",
+        "price": 10700,
+        "creation_date": "02/11/2024, 8:43:54",
+        "station_name_from_form": "UZMAXOIL"
+    },
+    {
+        "🔒 Row ID": "a.xUgQhzzQ8-.AgD7vYzB3g",
+        "stationID": "ImLPh8rBSdGxjvxTAnzqUA",
+        "fuel_type": "АИ-80",
+        "price": 8200,
+        "creation_date": "02/11/2024, 8:54:41",
+        "station_name_from_form": "AZC Mirxosil"
+    },
+    {
+        "🔒 Row ID": "irxSot3cQN2yJU.ORGryKg",
+        "stationID": "ImLPh8rBSdGxjvxTAnzqUA",
+        "fuel_type": "АИ-92",
+        "price": 10300,
+        "creation_date": "02/11/2024, 8:54:51",
+        "station_name_from_form": "AZC Mirxosil"
+    },
+    {
+        "🔒 Row ID": "Z1qRRWXvQH6p58Ahdjqrog",
+        "stationID": "ImLPh8rBSdGxjvxTAnzqUA",
+        "fuel_type": "АИ-95",
+        "price": 12400,
+        "creation_date": "02/11/2024, 8:55:01",
+        "station_name_from_form": "AZC Mirxosil"
+    },
+    {
+        "🔒 Row ID": "pFPB3WvEQdmf8scuxRiydA",
+        "stationID": "ImLPh8rBSdGxjvxTAnzqUA",
+        "fuel_type": "Дизель",
+        "price": 10500,
+        "creation_date": "02/11/2024, 8:55:04",
+        "station_name_from_form": "AZC Mirxosil"
+    },
+    {
+        "🔒 Row ID": "4ZBYbB6MS3q.Cal9N1HlVA",
+        "stationID": "pFNjrRQ0SbuA4.w7iX6INg",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 9:26:31",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "xwxPg7.iRya4sXssHPnH9A",
+        "stationID": "pFNjrRQ0SbuA4.w7iX6INg",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 9:29:46",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "bldZwaudQa2X9ZJYjJggMw",
+        "stationID": "Y-hzOWwdT0yw.oXdYQ5lNw",
+        "fuel_type": "АИ-80",
+        "price": 8400,
+        "creation_date": "02/11/2024, 10:59:31",
+        "station_name_from_form": "Intran Servis"
+    },
+    {
+        "🔒 Row ID": "s2SDzBzQR4CGDrRXNpBgNA",
+        "stationID": "Y-hzOWwdT0yw.oXdYQ5lNw",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 10:59:41",
+        "station_name_from_form": "Intran Servis"
+    },
+    {
+        "🔒 Row ID": "hC4BPXjPQMOTHqLgudGlqw",
+        "stationID": "Y-hzOWwdT0yw.oXdYQ5lNw",
+        "fuel_type": "АИ-95",
+        "price": 1300,
+        "creation_date": "02/11/2024, 11:00:01",
+        "station_name_from_form": "Intran Servis"
+    },
+    {
+        "🔒 Row ID": "00UOlfjcQKeRvzYSb2QOMA",
+        "stationID": "Y-hzOWwdT0yw.oXdYQ5lNw",
+        "fuel_type": "АИ-95",
+        "price": 13000,
+        "creation_date": "02/11/2024, 11:00:11",
+        "station_name_from_form": "Intran Servis"
+    },
+    {
+        "🔒 Row ID": "1WrV8MzHTVCAvBsH6RMfeQ",
+        "stationID": "2vsl00r2ShSGHxGJLXRGqw",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 11:19:55",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "tKQY0BBSRYSuHvH1-Zn-vg",
+        "stationID": "2vsl00r2ShSGHxGJLXRGqw",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 11:20:15",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "cnlAAAxZReeGe84uf1PDhQ",
+        "stationID": "2vsl00r2ShSGHxGJLXRGqw",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "02/11/2024, 11:20:26",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "aFG0sc1FT2qI-.RnJ230Pg",
+        "stationID": "8dLV8m9rQn-VC2iRWXqkNA",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 11:30:50",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "xBHDnck1TwiSbOrlbxriSA",
+        "stationID": "8dLV8m9rQn-VC2iRWXqkNA",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 11:31:00",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "uXaxvivpSdSU1srreuNuoA",
+        "stationID": "8dLV8m9rQn-VC2iRWXqkNA",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "02/11/2024, 11:31:10",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "eV59mvKRQdaD7xpB31IQvw",
+        "stationID": "oJW4nIUiSqiboeQTJOu2lw",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 11:39:56",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "juS4IjZvSQuDKrWTA4jW8g",
+        "stationID": "oJW4nIUiSqiboeQTJOu2lw",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 11:40:06",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "a-Xok8dWiSD2DkBvMYKvEvg",
+        "stationID": "oJW4nIUiSqiboeQTJOu2lw",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "02/11/2024, 11:40:26",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "UWu1bEUwSrykFXGdtbMaRw",
+        "stationID": "oJW4nIUiSqiboeQTJOu2lw",
+        "fuel_type": "Дизель",
+        "price": 12500,
+        "creation_date": "02/11/2024, 11:40:36",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "bjJK3SonQOuE-ZGG.bLqaw",
+        "stationID": "k.6pPPqLTuayctCNfuKalA",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "02/11/2024, 12:03:33",
+        "station_name_from_form": "IBR PETROLEUM BATION"
+    },
+    {
+        "🔒 Row ID": "BIjhYkGTRxCjJSCE-ksWZw",
+        "stationID": "k.6pPPqLTuayctCNfuKalA",
+        "fuel_type": "АИ-80",
+        "price": 7800,
+        "creation_date": "02/11/2024, 12:03:23",
+        "station_name_from_form": "IBR PETROLEUM BATION"
+    },
+    {
+        "🔒 Row ID": "WPzi5DpVQRqqKu7dTkfW2A",
+        "stationID": "k.6pPPqLTuayctCNfuKalA",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "02/11/2024, 12:03:43",
+        "station_name_from_form": "IBR PETROLEUM BATION"
+    },
+    {
+        "🔒 Row ID": "qv9HpsuHQI-XeeD5M2O6jA",
+        "stationID": "kNKzJTRHSpWoUaChOZcfTQ",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 12:09:25",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "AgcW3jOtS3GiSzVRzioykA",
+        "stationID": "kNKzJTRHSpWoUaChOZcfTQ",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 12:09:33",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "xCepjAiCStK3FYqeCBpKYQ",
+        "stationID": "kNKzJTRHSpWoUaChOZcfTQ",
+        "fuel_type": "Дизель",
+        "price": 12500,
+        "creation_date": "02/11/2024, 12:09:43",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "cMDyvDxUToaiRd6OdKtBNA",
+        "stationID": "kNKzJTRHSpWoUaChOZcfTQ",
+        "fuel_type": "АИ-95",
+        "price": 15800,
+        "creation_date": "02/11/2024, 12:10:03",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "0AHenmsgQVq8Agx3cetpOA",
+        "stationID": "O3qnw9xpR72nNKiGi2v0wA",
+        "fuel_type": "АИ-80",
+        "price": 7800,
+        "creation_date": "02/11/2024, 12:23:11",
+        "station_name_from_form": "IBR Fuelsis staiton"
+    },
+    {
+        "🔒 Row ID": "RxlDEhnuS-C.D9UAcUKSUg",
+        "stationID": "O3qnw9xpR72nNKiGi2v0wA",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "02/11/2024, 12:23:31",
+        "station_name_from_form": "IBR Fuelsis staiton"
+    },
+    {
+        "🔒 Row ID": "r.MoFWplTMWcMFKf1YB5OA",
+        "stationID": "O3qnw9xpR72nNKiGi2v0wA",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "02/11/2024, 12:23:41",
+        "station_name_from_form": "IBR Fuelsis staiton"
+    },
+    {
+        "🔒 Row ID": "nWdO9SH9QCK-aX-YH855lA",
+        "stationID": "AisBExRYTvujkk-s0i3Oww",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 12:29:23",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "CUxBx6ndQ0GKeT.dOCNqhg",
+        "stationID": "AisBExRYTvujkk-s0i3Oww",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 12:29:42",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "sBrIiFNER6WQzCKoIARu8g",
+        "stationID": "AisBExRYTvujkk-s0i3Oww",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "02/11/2024, 12:29:52",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "3jVpHpbQQqeqUM9CiIqvFg",
+        "stationID": "AisBExRYTvujkk-s0i3Oww",
+        "fuel_type": "Дизель",
+        "price": 12500,
+        "creation_date": "02/11/2024, 12:30:02",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "1LC-ZDsSTVa41L6yJj5DJw",
+        "stationID": "d6G0YOWySXKJZt4ApGeW5g",
+        "fuel_type": "АИ-80",
+        "price": 8300,
+        "creation_date": "02/11/2024, 12:55:15",
+        "station_name_from_form": "Quest Room"
+    },
+    {
+        "🔒 Row ID": "YIUmwC5mQ-ibCqIkIFtSaQ",
+        "stationID": "d6G0YOWySXKJZt4ApGeW5g",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "02/11/2024, 12:55:18",
+        "station_name_from_form": "Quest Room"
+    },
+    {
+        "🔒 Row ID": "3eHY0aU0St6.a8a4pZsaMg",
+        "stationID": "d6G0YOWySXKJZt4ApGeW5g",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "02/11/2024, 12:55:26",
+        "station_name_from_form": "Quest Room"
+    },
+    {
+        "🔒 Row ID": "8UUHy3sGTKOIwUpEX-sTMw",
+        "stationID": "d6G0YOWySXKJZt4ApGeW5g",
+        "fuel_type": "Дизель",
+        "price": 12500,
+        "creation_date": "02/11/2024, 12:55:45",
+        "station_name_from_form": "Quest Room"
+    },
+    {
+        "🔒 Row ID": "Ys40a8SbQmaXCjwK75DS8A",
+        "stationID": "1kjYfAStQeuj7YtfLJ5AJA",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 13:03:11",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "a-tVgltqRRCej7jWDPSF7uw",
+        "stationID": "1kjYfAStQeuj7YtfLJ5AJA",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 13:03:21",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "r4PLQdCiQXSajEe-PkY6Sg",
+        "stationID": "GyqYRJn3QLiCQw4qvfDI5A",
+        "fuel_type": "АИ-80",
+        "price": 7800,
+        "creation_date": "02/11/2024, 13:14:46",
+        "station_name_from_form": "IBR Petroleum station"
+    },
+    {
+        "🔒 Row ID": "qwxekiaIQZOo4IyYmpvN.Q",
+        "stationID": "GyqYRJn3QLiCQw4qvfDI5A",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "02/11/2024, 13:14:57",
+        "station_name_from_form": "IBR Petroleum station"
+    },
+    {
+        "🔒 Row ID": "MqNq3s84S3qilC4WFXJWpA",
+        "stationID": "GyqYRJn3QLiCQw4qvfDI5A",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "02/11/2024, 13:14:59",
+        "station_name_from_form": "IBR Petroleum station"
+    },
+    {
+        "🔒 Row ID": "2X.znDFWRo-32l8AhwY1JQ",
+        "stationID": "0f0U8kDKRzyRkXxbo-jRtw",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "02/11/2024, 13:43:39",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "Am.bSjkUT6WRr3mfJjOKAQ",
+        "stationID": "0f0U8kDKRzyRkXxbo-jRtw",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "02/11/2024, 13:43:49",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "sJrPU-smQLy9v9BiSwPljg",
+        "stationID": "0f0U8kDKRzyRkXxbo-jRtw",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "02/11/2024, 13:44:09",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "Ou-1-ol-T0a1zy2LZXaOWA",
+        "stationID": "kL8tVpUBQkKTSnAdg7xAXA",
+        "fuel_type": "АИ-80",
+        "price": 7800,
+        "creation_date": "02/11/2024, 15:33:19",
+        "station_name_from_form": "IBR Petroleum station BEST"
+    },
+    {
+        "🔒 Row ID": "I.qxNAeLQ.2FmwYd.9V-Uw",
+        "stationID": "kL8tVpUBQkKTSnAdg7xAXA",
+        "fuel_type": "АИ-92",
+        "price": 9500,
+        "creation_date": "02/11/2024, 15:33:49",
+        "station_name_from_form": "IBR Petroleum station BEST"
+    },
+    {
+        "🔒 Row ID": "M2DFkvKzRACG1p6VPuRbHg",
+        "stationID": "kL8tVpUBQkKTSnAdg7xAXA",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "02/11/2024, 15:34:21",
+        "station_name_from_form": "IBR Petroleum station BEST"
+    },
+    {
+        "🔒 Row ID": "Qvjc1qewS62KFZfBeGHTVQ",
+        "stationID": "9zpjsCRjRe6V0iJctKiTBw",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "04/11/2024, 10:41:23",
+        "station_name_from_form": "UzGazoil GAZ"
+    },
+    {
+        "🔒 Row ID": "GhAh4SCqT4GJ8HEr9XJLJg",
+        "stationID": "9zpjsCRjRe6V0iJctKiTBw",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "04/11/2024, 10:41:45",
+        "station_name_from_form": "UzGazoil GAZ"
+    },
+    {
+        "🔒 Row ID": "GDhxPNOARVqKUC3UxEqflw",
+        "stationID": "9zpjsCRjRe6V0iJctKiTBw",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "04/11/2024, 10:41:53",
+        "station_name_from_form": "UzGazoil GAZ"
+    },
+    {
+        "🔒 Row ID": "BJuOHrFTTKK9vCAaP-kv3A",
+        "stationID": "9zpjsCRjRe6V0iJctKiTBw",
+        "fuel_type": "Пропан",
+        "price": 7200,
+        "creation_date": "04/11/2024, 10:44:58",
+        "station_name_from_form": "UzGazoil GAZ"
+    },
+    {
+        "🔒 Row ID": "gXqI7duOQnueG3GxoNzEFg",
+        "stationID": "9zpjsCRjRe6V0iJctKiTBw",
+        "fuel_type": "Дизель",
+        "price": 12800,
+        "creation_date": "04/11/2024, 10:46:18",
+        "station_name_from_form": "UzGazoil GAZ"
+    },
+    {
+        "🔒 Row ID": "ceUhS3.hQS-OHEZQw5w9Jw",
+        "stationID": "b4if1hCFR7uZAgTBr9ZUWw",
+        "fuel_type": "Метан",
+        "price": 3950,
+        "creation_date": "04/11/2024, 10:56:02",
+        "station_name_from_form": "АГЗС METAN"
+    },
+    {
+        "🔒 Row ID": "lEjBYKNLTQ2urHi2S6sZ3Q",
+        "stationID": "XGH8W6lHTda63.5fUzk0Gw",
+        "fuel_type": "Метан",
+        "price": 3950,
+        "creation_date": "04/11/2024, 11:01:31",
+        "station_name_from_form": "METAN"
+    },
+    {
+        "🔒 Row ID": "GEAcAkzkSGGl1uoy83GH2w",
+        "stationID": "HOVaOUPUTwuJQUCKlRL95w",
+        "fuel_type": "Метан",
+        "price": 3950,
+        "creation_date": "04/11/2024, 11:02:22",
+        "station_name_from_form": "METAN"
+    },
+    {
+        "🔒 Row ID": "UH4Cs2QVTXOJpYSKdeeslw",
+        "stationID": "WaNfjxG9TGOutHvBgkm2zA",
+        "fuel_type": "Метан",
+        "price": 3990,
+        "creation_date": "04/11/2024, 11:13:03",
+        "station_name_from_form": "METAN"
+    },
+    {
+        "🔒 Row ID": "Hg9T4lrIQDONv1xtsyzGDw",
+        "stationID": "03dL0sDbRoWfU9fOdYn9cw",
+        "fuel_type": "Метан",
+        "price": 3960,
+        "creation_date": "04/11/2024, 11:22:51",
+        "station_name_from_form": "METAN"
+    },
+    {
+        "🔒 Row ID": "yM-41yDNRlWFNqQEOrnC6Q",
+        "stationID": "aYIIP0PFS2qWQnG3UnvWQw",
+        "fuel_type": "АИ-80",
+        "price": 8400,
+        "creation_date": "04/11/2024, 11:30:57",
+        "station_name_from_form": "Tashkent OIL"
+    },
+    {
+        "🔒 Row ID": "CoD2LSkFTO6Satfk1Sshlw",
+        "stationID": "aYIIP0PFS2qWQnG3UnvWQw",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "04/11/2024, 11:31:07",
+        "station_name_from_form": "Tashkent OIL"
+    },
+    {
+        "🔒 Row ID": "A4DuBKe5QbuNH1dsSWJs9g",
+        "stationID": "aYIIP0PFS2qWQnG3UnvWQw",
+        "fuel_type": "Дизель",
+        "price": 10700,
+        "creation_date": "04/11/2024, 11:31:27",
+        "station_name_from_form": "Tashkent OIL"
+    },
+    {
+        "🔒 Row ID": "pN5ANoUJQOKaVUelhbCJMw",
+        "stationID": "pekJ-aMKReCTOANTiTNk9w",
+        "fuel_type": "Метан",
+        "price": 3950,
+        "creation_date": "04/11/2024, 14:52:23",
+        "station_name_from_form": "METAN"
+    },
+    {
+        "🔒 Row ID": "DE.mdIIwSCOfegp0ov.uXg",
+        "stationID": "RpYJE5jrSnSsgfcR77Riqg",
+        "fuel_type": "АИ-80",
+        "price": 8000,
+        "creation_date": "05/11/2024, 11:21:18",
+        "station_name_from_form": "Petrol station"
+    },
+    {
+        "🔒 Row ID": "GzLaozhlT8eXqYlwg31CZQ",
+        "stationID": "RpYJE5jrSnSsgfcR77Riqg",
+        "fuel_type": "АИ-92",
+        "price": 10400,
+        "creation_date": "05/11/2024, 11:21:28",
+        "station_name_from_form": "Petrol station"
+    },
+    {
+        "🔒 Row ID": "I4ztEtHJRVmGLlMvjvXrYw",
+        "stationID": "RpYJE5jrSnSsgfcR77Riqg",
+        "fuel_type": "АИ-95",
+        "price": 12000,
+        "creation_date": "05/11/2024, 11:21:38",
+        "station_name_from_form": "Petrol station"
+    },
+    {
+        "🔒 Row ID": "Vxy0ezcuS9apBFEYAfqOxw",
+        "stationID": "n-mQBv74TceZ5z8K3RIhnw",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "05/11/2024, 11:34:24",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "cEEIoGz4Rra3sQPnCajOSA",
+        "stationID": "n-mQBv74TceZ5z8K3RIhnw",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "05/11/2024, 11:34:13",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "DoG7.nlTSuKEC-sMl35KuA",
+        "stationID": "n-mQBv74TceZ5z8K3RIhnw",
+        "fuel_type": "АИ-95",
+        "price": 13900,
+        "creation_date": "05/11/2024, 11:34:33",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "u7OaEYVESouLWgLU6ni0Lg",
+        "stationID": "PVWWpHiwQgeR5mKz5Mrlow",
+        "fuel_type": "Метан",
+        "price": 3950,
+        "creation_date": "05/11/2024, 11:48:12",
+        "station_name_from_form": "METAN GAZ"
+    },
+    {
+        "🔒 Row ID": "8uEQ58KLRFGQ359QubAajA",
+        "stationID": "JeVD6EHqSXyhJI12W-fJVQ",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "05/11/2024, 12:11:02",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "CJnAQMeURYqEGdktFc-pBg",
+        "stationID": "JeVD6EHqSXyhJI12W-fJVQ",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "05/11/2024, 12:11:12",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "ZiW78PqYQzKDhIPtQc9qPg",
+        "stationID": "JeVD6EHqSXyhJI12W-fJVQ",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "05/11/2024, 12:11:22",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "a-G5MqpWXRrW4V-xI6VUsxw",
+        "stationID": "JeVD6EHqSXyhJI12W-fJVQ",
+        "fuel_type": "Дизель",
+        "price": 12500,
+        "creation_date": "05/11/2024, 12:16:02",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "xlPoPp0PQIWoXv1T2VqYyQ",
+        "stationID": "iB8Me2aQT3GJm5PuDbM0hQ",
+        "fuel_type": "Метан",
+        "price": 3900,
+        "creation_date": "05/11/2024, 12:22:45",
+        "station_name_from_form": "METAN AGNKS"
+    },
+    {
+        "🔒 Row ID": "9cWpEaO4RA-H0z-Us1afUw",
+        "stationID": "8OaCeQAHTHuQaUMRbIzKjg",
+        "fuel_type": "Метан",
+        "price": 3950,
+        "creation_date": "05/11/2024, 12:29:35",
+        "station_name_from_form": "METAN"
+    },
+    {
+        "🔒 Row ID": "dT02oB7dR8WsjALLjHvF8g",
+        "stationID": "iWjvBDA5TIyw-OJ7XzQbZg",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "06/11/2024, 10:55:34",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "pgtO6-e.T92KpaBxrAXgDw",
+        "stationID": "iWjvBDA5TIyw-OJ7XzQbZg",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "06/11/2024, 10:55:43",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "9cMNzJZvQ026k-8qlBTLiw",
+        "stationID": "iWjvBDA5TIyw-OJ7XzQbZg",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "06/11/2024, 10:56:03",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "CuKBcxqaTfqQtV8RGd5Q3Q",
+        "stationID": "8PbIMBF6QYazGZqpuWLxZQ",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "06/11/2024, 11:20:34",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "wSJ-jvB9TaCPLmhev-KRag",
+        "stationID": "8PbIMBF6QYazGZqpuWLxZQ",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "06/11/2024, 11:20:37",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "q.TXGN6WQnu5HA83.vtlIA",
+        "stationID": "8PbIMBF6QYazGZqpuWLxZQ",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "06/11/2024, 11:20:46",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "MMRy0BaWSR-uaIgKsXfBBg",
+        "stationID": "sRndki-kSLm6a1jJLtGUAQ",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "06/11/2024, 11:44:01",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "ztFf9JMESlux06NkbWfuEg",
+        "stationID": "sRndki-kSLm6a1jJLtGUAQ",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "06/11/2024, 11:44:11",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "ZwgGDaSSQfGjdvLCmXtM6g",
+        "stationID": "sRndki-kSLm6a1jJLtGUAQ",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "06/11/2024, 11:44:21",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "NwQpFxHiRVWKgpIgsp07PA",
+        "stationID": "XTF4UF6kR.Kgi41f79G4Yw",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "06/11/2024, 12:01:16",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "mE0eFSf4Sl-VoD0fYYJTnQ",
+        "stationID": "XTF4UF6kR.Kgi41f79G4Yw",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "06/11/2024, 12:01:25",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "m2sQ9cnGSTO.9bYwsaL9lA",
+        "stationID": "XTF4UF6kR.Kgi41f79G4Yw",
+        "fuel_type": "АИ-95",
+        "price": 12800,
+        "creation_date": "06/11/2024, 12:01:36",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "IS6q-rwJTuioA8YEzGLTdQ",
+        "stationID": "vwfz14kZQGynatSlFITOFg",
+        "fuel_type": "АИ-80",
+        "price": 8100,
+        "creation_date": "06/11/2024, 12:20:54",
+        "station_name_from_form": "IBR Petroleum START"
+    },
+    {
+        "🔒 Row ID": "ZnuJ-gAgSbqBTx0QYteq5Q",
+        "stationID": "vwfz14kZQGynatSlFITOFg",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "06/11/2024, 12:21:04",
+        "station_name_from_form": "IBR Petroleum START"
+    },
+    {
+        "🔒 Row ID": "dWFeHuSnT4WL4DsrNt8cmQ",
+        "stationID": "vwfz14kZQGynatSlFITOFg",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "06/11/2024, 12:23:04",
+        "station_name_from_form": "IBR Petroleum START"
+    },
+    {
+        "🔒 Row ID": "7FcNby-oSHW6.3Sqi52xpg",
+        "stationID": "WLQ08nGNSi2PqEJ3w6CV8w",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "06/11/2024, 12:33:54",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "SavEjBcmTreDmy3u8LuOFw",
+        "stationID": "WLQ08nGNSi2PqEJ3w6CV8w",
+        "fuel_type": "АИ-80",
+        "price": 6900,
+        "creation_date": "06/11/2024, 12:33:45",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "YBa05lJeQeWsWHEAnjey6g",
+        "stationID": "WLQ08nGNSi2PqEJ3w6CV8w",
+        "fuel_type": "Дизель",
+        "price": 12500,
+        "creation_date": "06/11/2024, 12:34:04",
+        "station_name_from_form": "UzGazoil"
+    },
+    {
+        "🔒 Row ID": "XUjxBb-YTgSBSPwJE8Gguw",
+        "stationID": "Y3Vqf2THTv6elF1OpgX-Bw",
+        "fuel_type": "АИ-80",
+        "price": 8100,
+        "creation_date": "06/11/2024, 12:44:27",
+        "station_name_from_form": "IBR Plane"
+    },
+    {
+        "🔒 Row ID": "l5v6Ih1KSgSBHu3cFfFiNw",
+        "stationID": "Y3Vqf2THTv6elF1OpgX-Bw",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "06/11/2024, 12:44:37",
+        "station_name_from_form": "IBR Plane"
+    },
+    {
+        "🔒 Row ID": "Da01QMzoSe-nNGJigxBpiw",
+        "stationID": "Y3Vqf2THTv6elF1OpgX-Bw",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "06/11/2024, 12:44:47",
+        "station_name_from_form": "IBR Plane"
+    },
+    {
+        "🔒 Row ID": "TowXEGyISAOXB8f3lKeKcw",
+        "stationID": "S91otrDTQT-fNwl6RSeEwA",
+        "fuel_type": "Метан",
+        "price": 3950,
+        "creation_date": "06/11/2024, 12:55:33",
+        "station_name_from_form": "METAN"
+    },
+    {
+        "🔒 Row ID": "a.GjHv-keTiuwoE0S46fcWQ",
+        "stationID": "nz26c2JsQQeQE1EH7g9GYw",
+        "fuel_type": "Метан",
+        "price": 3950,
+        "creation_date": "06/11/2024, 13:07:45",
+        "station_name_from_form": "METAN"
+    },
+    {
+        "🔒 Row ID": "4m1-QZnVQ0-XPW36fC6fZQ",
+        "stationID": "7Wk3kOdWRr2dkGsx47vy2g",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "06/11/2024, 13:12:01",
+        "station_name_from_form": "Comfort oil"
+    },
+    {
+        "🔒 Row ID": "I7uhH44bT-yGdVueHaR93Q",
+        "stationID": "7Wk3kOdWRr2dkGsx47vy2g",
+        "fuel_type": "АИ-95",
+        "price": 13500,
+        "creation_date": "06/11/2024, 13:12:21",
+        "station_name_from_form": "Comfort oil"
+    },
+    {
+        "🔒 Row ID": "Ijw076tGQyaUlC2FEt67yw",
+        "stationID": "7Wk3kOdWRr2dkGsx47vy2g",
+        "fuel_type": "Дизель",
+        "price": 12500,
+        "creation_date": "06/11/2024, 13:12:31",
+        "station_name_from_form": "Comfort oil"
+    },
+    {
+        "🔒 Row ID": "x6zWDJYVQIu-xyvxpY3NsQ",
+        "stationID": "vx6z1yNqSS-hm7scrxcQRg",
+        "fuel_type": "АИ-80",
+        "price": 8000,
+        "creation_date": "06/11/2024, 13:17:37",
+        "station_name_from_form": "BEST Petroleum"
+    },
+    {
+        "🔒 Row ID": "zcadg9MUSDSDae5jD-c9XA",
+        "stationID": "vx6z1yNqSS-hm7scrxcQRg",
+        "fuel_type": "АИ-92",
+        "price": 10700,
+        "creation_date": "06/11/2024, 13:17:47",
+        "station_name_from_form": "BEST Petroleum"
+    },
+    {
+        "🔒 Row ID": "N9S8C89uQnqXf6JmFrffgA",
+        "stationID": "vx6z1yNqSS-hm7scrxcQRg",
+        "fuel_type": "Дизель",
+        "price": 10700,
+        "creation_date": "06/11/2024, 13:17:57",
+        "station_name_from_form": "BEST Petroleum"
+    },
+    {
+        "🔒 Row ID": "fGlg7-WaRtSNhiYozC.UIw",
+        "stationID": "j.drYLFlQBmNsPqZYMfGkw",
+        "fuel_type": "Метан",
+        "price": 3950,
+        "creation_date": "06/11/2024, 13:24:06",
+        "station_name_from_form": "METAN"
+    },
+    {
+        "🔒 Row ID": "MeusdY--Rrqy.QECQ7gyHg",
+        "stationID": "vWAx9-X3S4u-FrC.XS1whA",
+        "fuel_type": "АИ-92",
+        "price": 10500,
+        "creation_date": "06/11/2024, 13:30:15",
+        "station_name_from_form": "IBR MAX"
+    },
+    {
+        "🔒 Row ID": "a-swFw3VMRtW4cC2cATGnoA",
+        "stationID": "vWAx9-X3S4u-FrC.XS1whA",
+        "fuel_type": "АИ-80",
+        "price": 8100,
+        "creation_date": "06/11/2024, 13:30:09",
+        "station_name_from_form": "IBR MAX"
+    },
+    {
+        "🔒 Row ID": "gHuOLYgDRauAkb1j1MQfhg",
+        "stationID": "vWAx9-X3S4u-FrC.XS1whA",
+        "fuel_type": "АИ-95",
+        "price": 12500,
+        "creation_date": "06/11/2024, 13:31:05",
+        "station_name_from_form": "IBR MAX"
+    },
+    {
+        "🔒 Row ID": "PkAvkqeuRS6Bhkr.JLnblQ",
+        "stationID": "83E.JpQjRbGjVu2C28c7Mg",
+        "fuel_type": "АИ-80",
+        "price": 8500,
+        "creation_date": "07/11/2024, 14:06:46",
+        "station_name_from_form": "MUSTANG"
+    },
+    {
+        "🔒 Row ID": "IBmyqcOQTIib4ODt9K8ghA",
+        "stationID": "83E.JpQjRbGjVu2C28c7Mg",
+        "fuel_type": "АИ-95",
+        "price": 13100,
+        "creation_date": "07/11/2024, 14:07:26",
+        "station_name_from_form": "MUSTANG"
+    },
+    {
+        "🔒 Row ID": "mAV-CdJQSEeyz25z22KAfg",
+        "stationID": "eNeWCD31QGiQ-8Vv-vUiGw",
+        "fuel_type": "АИ-80",
+        "price": 7400,
+        "creation_date": "08/11/2024, 9:28:31",
+        "station_name_from_form": "OLOVIDIN"
+    }
+]

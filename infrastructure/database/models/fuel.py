@@ -25,7 +25,7 @@ class PlaceFuelPrice(Base, IntIdPkMixin):
         nullable=True,
     )
 
-    place_id: Mapped[int] = mapped_column(ForeignKey("places.id"))
+    place_id: Mapped[int] = mapped_column(ForeignKey("places.id", ondelete="CASCADE"))
     place = relationship("Place", back_populates="fuel_price")
     price: Mapped[int] = mapped_column(nullable=True)
     created_at: Mapped[created_at]
