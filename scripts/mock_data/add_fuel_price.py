@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from config.loader import load_config
 from external.json.reader import load_json
-from infrastructure.database.models import Place, PlaceFuelPrice
+from infrastructure.database.models import PlaceFuelPrice
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.database.setup import create_engine, create_session_pool
 
@@ -19,6 +19,9 @@ async def add_mock_places(session: AsyncSession):
     for place in places:
         for obj in test_places_json:
             if place.row_id == obj["stationID"]:
+                print(obj["fuel_type"])
+                if not obj["fuel_type"]:
+                    continue
                 item = PlaceFuelPrice(
                     fuel_type=obj["fuel_type"],
                     place_id=place.id,
