@@ -2,19 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Global Chat</title>
+    <title>Private Chat</title>
   </head>
   <body>
-    <h1>Global Chat</h1>
+    <h1>Private Chat</h1>
     <textarea id="messages" readonly></textarea><br />
     <input type="text" id="message" placeholder="Type a message" />
     <button onclick="sendMessage()">Send</button>
 
     <script>
-      const userId = 2; // Пример ID пользователя
-      const ws = new WebSocket(`ws://localhost:8000/ws/global/${userId}`);
+      const userId = 2; // Пример ID отправителя
+      const recipientId = 3; // Пример ID получателя
+      const ws = new WebSocket(
+        `ws://localhost:8000/ws/private/${userId}/${recipientId}`
+      );
 
       ws.onmessage = (event) => {
+        console.log("afafafafa");
         document.getElementById("messages").value += event.data + "\n";
       };
 
@@ -22,9 +26,10 @@
         const message = document.getElementById("message").value;
         const item = {
           sender_id: userId,
+          recipient_id: recipientId,
           content: message,
         };
-
+        console.log(item);
         ws.send(JSON.stringify(item));
         document.getElementById("message").value = "";
       }

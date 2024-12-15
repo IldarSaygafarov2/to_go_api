@@ -2,13 +2,13 @@ from dataclasses import dataclass
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from .chat import ChatMessageRepo, ChatRepo
 from .comments import PlaceCommentRepo
 from .fuel import FuelRepo
 from .place import PlaceRepo
 from .place_image import PlaceImageRepo
 from .place_rating import PlaceRatingRepo
 from .user import UserRepo, UserVerificationCodeRepo
+from .chat import ChatMessageRepo, PrivateChatRepo
 
 
 @dataclass
@@ -44,9 +44,9 @@ class RequestsRepo:
         return PlaceRatingRepo(self.session)
 
     @property
-    def chat(self) -> ChatRepo:
-        return ChatRepo(self.session)
-
-    @property
     def chat_messages(self) -> ChatMessageRepo:
         return ChatMessageRepo(self.session)
+
+    @property
+    def private_chats(self) -> PrivateChatRepo:
+        return PrivateChatRepo(self.session)

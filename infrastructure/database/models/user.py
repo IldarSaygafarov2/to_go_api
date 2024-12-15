@@ -25,3 +25,8 @@ class User(Base, IntIdPkMixin):
     created_at: Mapped[created_at]
 
     comments = relationship("PlaceComment", back_populates="user")
+    sent_messages = relationship(
+        "Message",
+        back_populates="sender",
+        # foreign_keys=["messages.sender_id"],
+    )

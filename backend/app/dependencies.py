@@ -1,11 +1,16 @@
 from backend.app.config import config
+from backend.core.services.jwt_service import JwtService
 from backend.core.services.sms_service import SMSService
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.database.setup import create_engine, create_session_pool
-from backend.core.services.jwt_service import JwtService
+from backend.core.services.websocket import WebsocketService
 
 engine = create_engine(config.db)
 session_pool = create_session_pool(engine)
+
+
+def get_websocket_service():
+    return WebsocketService()
 
 
 async def get_repo():

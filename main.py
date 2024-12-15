@@ -1,10 +1,20 @@
+import json
+from typing import Annotated
+
 import uvicorn
-from fastapi import FastAPI, WebSocket
+from fastapi import Depends, FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from backend.api import router as api_router
 from backend.app.config import config
+from backend.app.dependencies import get_repo
+from backend.core.services.websocket import (
+    GlobalChatWebsocket,
+    PrivateChatWebsocket,
+    WebsocketService,
+)
+from infrastructure.database.repo.requests import RequestsRepo
 
 app = FastAPI()
 
@@ -18,28 +28,28 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-connected_users = {}
+manager = WebsocketService()
 
 
-@app.websocket("/ws/{user_id}")
-async def websocket_endpoint(user_id: str, websocket: WebSocket):
-    await websocket.accept()
+@app.websocket("/ws/global/{user_id}")
+async def websocket_global_chat(
+    websocket: WebSocket,
+    user_id: int,
+    repo: Annotated[RequestsRepo, Depends(get_repo)],
+):
+    global_chat_handler = GlobalChatWebsocket(manager, repo=repo)
+    await global_chat_handler.handle_connection(websocket, user_id)
 
-    # Store the WebSocket connection in the dictionary
-    connected_users[user_id] = websocket
 
-    try:
-        while True:
-            data = await websocket.receive_text()
-
-            # Send the received data to the other user
-            for user, user_ws in connected_users.items():
-                if user == user_id:
-                    await user_ws.send_text(data)
-    except:
-        # If a user disconnects, remove them from the dictionary
-        del connected_users[user_id]
-        await websocket.close()
+@app.websocket("/ws/private/{user_id}/{recipient_id}")
+async def websocket_private_chat(
+    websocket: WebSocket,
+    user_id: int,
+    recipient_id: int,
+    repo: Annotated[RequestsRepo, Depends(get_repo)],
+):
+    private_chat_handler = PrivateChatWebsocket(manager, repo=repo)
+    await private_chat_handler.handle_connection(websocket, user_id, recipient_id)
 
 
 app.include_router(api_router)
