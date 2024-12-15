@@ -44,3 +44,20 @@ async def update_user_profile(
         user_photo=str(path),
     )
     return UserProfileDTO.model_validate(user_profile, from_attributes=True)
+
+
+@router.get("/{user_id}/chats/")
+async def get_user_chats(
+    user_id: int,
+    repo: Annotated[RequestsRepo, Depends(get_repo)],
+):
+    pass
+
+
+@router.get("/{user_id}/chats/{chat_id}")
+async def get_user_chat_detail(
+    user_id: int,
+    chat_id: int,
+    repo: Annotated[RequestsRepo, Depends(get_repo)],
+):
+    pass
