@@ -11,10 +11,11 @@
     <button onclick="sendMessage()">Send</button>
 
     <script>
-      const userId = 2; // Пример ID отправителя
-      const recipientId = 3; // Пример ID получателя
+      const userId = prompt("user_Id: "); // Пример ID отправителя
+      const recipientId = prompt("recipient_Id"); // Пример ID получателя
+
       const ws = new WebSocket(
-        `ws://localhost:8000/ws/private/${userId}/${recipientId}`
+        `ws://{{ request.headers.host }}/ws/private/${userId}/${recipientId}`
       );
 
       ws.onmessage = (event) => {

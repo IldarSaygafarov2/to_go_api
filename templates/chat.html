@@ -12,7 +12,9 @@
 
     <script>
       const userId = 2; // Пример ID пользователя
-      const ws = new WebSocket(`ws://localhost:8000/ws/global/${userId}`);
+      const ws = new WebSocket(
+        `ws://{{ request.headers.host }}/ws/global/${userId}`
+      );
 
       ws.onmessage = (event) => {
         document.getElementById("messages").value += event.data + "\n";
