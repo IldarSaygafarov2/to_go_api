@@ -11,7 +11,8 @@
     <button onclick="sendMessage()">Send</button>
 
     <script>
-      const userId = 2; // Пример ID пользователя
+      const userId = prompt("userId"); // Пример ID пользователя
+
       const ws = new WebSocket(
         `ws://{{ request.headers.host }}/ws/global/${userId}`
       );
