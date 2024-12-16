@@ -1,3 +1,4 @@
+import uuid
 from sqlalchemy import func, select
 
 from sqlalchemy.dialects.postgresql import insert
@@ -38,9 +39,11 @@ class PlaceRepo(BaseRepo):
         has_praying_room: bool = False,
         has_electric_charging: bool = False,
     ):
+        row_id = str(uuid.uuid4())
         stmt = (
             insert(Place)
             .values(
+                row_id=row_id,
                 name=name,
                 category=category,
                 address=address,

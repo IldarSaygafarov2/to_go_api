@@ -7,15 +7,13 @@ from backend.app.dependencies import get_repo
 from backend.core.interfaces.fuel import FuelCreateDTO, FuelDTO
 from backend.core.interfaces.place import (
     PaginatedPlacesDTO,
+    PlaceCommentCreateDTO,
+    PlaceCommentDTO,
     PlaceCreateDTO,
     PlaceDetailDTO,
-    PlaceListDTO,
-    PlaceCommentDTO,
-    PlaceCommentCreateDTO,
-    PlaceRatingDTO,
     PlaceRatingCreateDTO,
+    PlaceRatingDTO,
 )
-
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.utils.helpers import create_images_dir
 
@@ -35,15 +33,13 @@ async def create_place(
     data = place_data.model_dump()
     place = await repo.places.insert_place(**data)
 
-    images_dir = create_images_dir(f"places/{place.id}/")
+    images_dir = create_images_dir(f"places/{place.row_id}/")
     for image in images:
         filename = image.filename
         path = images_dir / filename
         with open(path, "wb") as f:
             f.write(await image.read())
-        place_image = await repo.place_images.insert_place_image(
-            place_id=place.id, url=str(path)
-        )
+        await repo.place_images.insert_place_image(place_id=place.id, url=str(path))
 
     new_place = await repo.places.get_place(place_id=place.id)
     return PlaceDetailDTO.model_validate(new_place, from_attributes=True)
@@ -78,9 +74,7 @@ async def get_places(
                 "fuel_price": place.fuel_price,
             }
         )
-    # places = [
-    #     PlaceListDTO.model_validate(place, from_attributes=True) for place in places
-    # ]
+
     total_places = await repo.places.get_total_places()
 
     result = {
