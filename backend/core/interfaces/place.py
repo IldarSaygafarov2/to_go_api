@@ -16,6 +16,7 @@ class PlaceListDTO(BaseModel):
     address: Optional[str]
     coordinates: Optional[str]
     rating: float
+    reviews_count: int
     fuel_price: Optional[list[FuelDTO]]
 
 
@@ -96,3 +97,9 @@ class PlaceRatingDTO(BaseModel):
     place_id: int
     user_id: int
     rating: int
+
+
+class PlaceNameCoordinateDTO(BaseModel):
+    id: int
+    name: str
+    coordinates: str

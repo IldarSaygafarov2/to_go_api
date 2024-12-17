@@ -13,6 +13,7 @@ from backend.core.interfaces.place import (
     PlaceDetailDTO,
     PlaceRatingCreateDTO,
     PlaceRatingDTO,
+    PlaceNameCoordinateDTO,
 )
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.utils.helpers import create_images_dir
@@ -71,6 +72,7 @@ async def get_places(
                 "coordinates": place.coordinates,
                 "working_hours": place.working_hours,
                 "rating": _rating,
+                "reviews_count": count,
                 "fuel_price": place.fuel_price,
             }
         )
@@ -84,6 +86,17 @@ async def get_places(
         "places": places,
     }
     return result
+
+
+@router.get("/all")
+async def get_all_places_names_and_coordinates(
+    repo: Annotated[RequestsRepo, Depends(get_repo)],
+) -> list[PlaceNameCoordinateDTO]:
+    places = await repo.places.get_all_places()
+    return [
+        PlaceNameCoordinateDTO.model_validate(place, from_attributes=True)
+        for place in places
+    ]
 
 
 @router.get("/{place_id}")
