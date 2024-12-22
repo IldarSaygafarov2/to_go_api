@@ -1,10 +1,11 @@
 import uuid
-from sqlalchemy import func, select
 
+from sqlalchemy import func, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import selectinload
 
-from infrastructure.database.models.place import Place, PlaceComment, PlaceRating
+from infrastructure.database.models.place import Place, PlaceComment
+from backend.core.filters.places import PlaceFilter
 
 from .base import BaseRepo
 
@@ -86,12 +87,23 @@ class PlaceRepo(BaseRepo):
         result = await self.session.execute(stmt)
         return result.scalars().all()
 
+    async def get_filtered_places(self, filters: dict):
+        _stmt = select(Place).options(selectinload(Place.fuel_price))
+        name_field = filters.get("name")
+        if name_field is not None:
+            filters.pop("name")
+            stmt = _stmt.filter(Place.name.like(f"%{name_field}%")).filter_by(**filters)
+        else:
+            stmt = _stmt.filter_by(**filters)
+        result = await self.session.execute(stmt)
+        return result.scalars().all()
+
     async def get_all_places(self):
         stmt = select(Place)
         result = await self.session.execute(stmt)
         return result.scalars().all()
 
-    async def get_total_places(self):
+    async def count_total_places(self):
         stmt = select(func.count(Place.id))
         result = await self.session.execute(stmt)
         return result.scalar_one()

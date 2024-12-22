@@ -1,9 +1,10 @@
 from typing import Annotated, Optional
 
-from fastapi import APIRouter, Body, Depends, File, UploadFile
+from fastapi import APIRouter, Body, Depends, File, UploadFile, Query
 
 from backend.app.config import config
 from backend.app.dependencies import get_repo
+from backend.core.filters.places import PlaceFilter
 from backend.core.interfaces.fuel import FuelCreateDTO, FuelDTO
 from backend.core.interfaces.place import (
     PaginatedPlacesDTO,
@@ -11,9 +12,9 @@ from backend.core.interfaces.place import (
     PlaceCommentDTO,
     PlaceCreateDTO,
     PlaceDetailDTO,
+    PlaceNameCoordinateDTO,
     PlaceRatingCreateDTO,
     PlaceRatingDTO,
-    PlaceNameCoordinateDTO,
 )
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.utils.helpers import create_images_dir
@@ -49,13 +50,23 @@ async def create_place(
 @router.get("/")
 async def get_places(
     repo: Annotated[RequestsRepo, Depends(get_repo)],
-    offset: int = 1,
-    limit: int = 14,
+    filters: Annotated[PlaceFilter, Query()],
 ) -> PaginatedPlacesDTO:
 
     places = []
 
-    db_places = await repo.places.get_places(offset=offset, limit=limit)
+    filters = filters.model_dump()
+
+    limit = filters.pop("limit")
+    offset = filters.pop("offset")
+
+    _filters = {key: value for key, value in filters.items() if value is not None}
+
+    if not _filters:
+        db_places = await repo.places.get_places(offset=offset, limit=limit)
+    else:
+        db_places = await repo.places.get_filtered_places(_filters)
+
     for place in db_places:
         rating, count = await repo.place_rating.get_place_rating(place_id=place.id)
         if rating is not None and count:
@@ -77,10 +88,12 @@ async def get_places(
             }
         )
 
-    total_places = await repo.places.get_total_places()
+    total_places = await repo.places.count_total_places()
+    total_filtered = len(db_places)
 
     result = {
         "total": total_places,
+        "total_filtered": total_filtered,
         "limit": limit,
         "offset": offset,
         "places": places,

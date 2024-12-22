@@ -83,6 +83,7 @@ class PlaceCreateDTO(BaseModel):
 
 class PaginatedPlacesDTO(BaseModel):
     total: int
+    total_filtered: int = 0
     limit: int
     offset: int
     places: list[PlaceListDTO]
