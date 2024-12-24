@@ -2,7 +2,6 @@ from typing import Optional
 
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-
 from .base import Base, created_at
 from .mixins.int_id_pk import IntIdPkMixin
 
