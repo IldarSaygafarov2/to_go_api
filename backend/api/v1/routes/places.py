@@ -14,7 +14,7 @@ from backend.core.interfaces.place import (
     PlaceDetailDTO,
     PlaceNameCoordinateDTO,
     PlaceRatingCreateDTO,
-    PlaceRatingDTO,
+    PlaceRatingDTO, PlaceDetailV2DTO,
 )
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.utils.helpers import create_images_dir
@@ -116,9 +116,14 @@ async def get_all_places_names_and_coordinates(
 async def get_place_detail(
     place_id: int,
     repo: Annotated[RequestsRepo, Depends(get_repo)],
-) -> PlaceDetailDTO:
-    place = await repo.places.get_place(place_id=place_id)
-    return PlaceDetailDTO.model_validate(place, from_attributes=True)
+):
+    place, rating = await repo.places.get_place(place_id=place_id)
+    if rating is None:
+        rating = 0
+    place = PlaceDetailDTO.model_validate(place, from_attributes=True).model_dump()
+    place.update({'rating': rating})
+    result = PlaceDetailV2DTO.model_validate(place, from_attributes=True)
+    return result
 
 
 @router.post("/{place_id}/comments/create")

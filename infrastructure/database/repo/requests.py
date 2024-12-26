@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 
 from sqlalchemy.ext.asyncio import AsyncSession
-
 from .chat import ChatMessageRepo, PrivateChatRepo
 from .comments import PlaceCommentRepo
 from .fuel import FuelRepo
@@ -10,6 +9,8 @@ from .place_image import PlaceImageRepo
 from .place_rating import PlaceRatingRepo
 from .support import OperatorRepo, SupportMessageRepo, SupportRoomRepo
 from .user import UserRepo, UserVerificationCodeRepo
+from .web_users import WebUsersRepo
+from .session import SessionRepo
 
 
 @dataclass
@@ -63,3 +64,7 @@ class RequestsRepo:
     @property
     def support_room(self) -> SupportRoomRepo:
         return SupportRoomRepo(self.session)
+
+    @property
+    def web_users(self) -> WebUsersRepo:
+        return WebUsersRepo(self.session)

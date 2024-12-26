@@ -1,10 +1,8 @@
+import string
 from typing import Annotated
 
 import uvicorn
-from fastapi import Depends, FastAPI, WebSocket
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-
+from admin.main import admin_router
 from backend.api import router as api_router
 from backend.app.config import config
 from backend.app.dependencies import get_repo
@@ -12,14 +10,19 @@ from backend.core.services.websocket import (
     GlobalChatWebsocket,
     PrivateChatWebsocket,
     WebsocketService,
-    SupportChatWebsocket,
 )
+from fastapi import Depends, FastAPI, WebSocket
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from infrastructure.database.repo.requests import RequestsRepo
 
 app = FastAPI()
 
-app.mount("/media/", StaticFiles(directory="media"), name="media")
+max_age = 3600
+session_choices = string.ascii_letters + string.digits + "=+%$#"
 
+app.mount("/media/", StaticFiles(directory="media"), name="media")
+app.mount("/static/", StaticFiles(directory="static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
@@ -29,14 +32,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+
 manager = WebsocketService()
 
 
 @app.websocket("/ws/global/{user_id}")
 async def websocket_global_chat(
-    websocket: WebSocket,
-    user_id: int,
-    repo: Annotated[RequestsRepo, Depends(get_repo)],
+        websocket: WebSocket,
+        user_id: int,
+        repo: Annotated[RequestsRepo, Depends(get_repo)],
 ):
     global_chat_handler = GlobalChatWebsocket(manager, repo=repo)
     await global_chat_handler.handle_connection(websocket, user_id)
@@ -44,27 +49,17 @@ async def websocket_global_chat(
 
 @app.websocket("/ws/private/{user_id}/{recipient_id}")
 async def websocket_private_chat(
-    websocket: WebSocket,
-    user_id: int,
-    recipient_id: int,
-    repo: Annotated[RequestsRepo, Depends(get_repo)],
+        websocket: WebSocket,
+        user_id: int,
+        recipient_id: int,
+        repo: Annotated[RequestsRepo, Depends(get_repo)],
 ):
     private_chat_handler = PrivateChatWebsocket(manager, repo=repo)
     await private_chat_handler.handle_connection(websocket, user_id, recipient_id)
 
 
-@app.websocket("/ws/support/{user_id}/{operator_id}")
-async def websocket_support_chat(
-    websocket: WebSocket,
-    user_id: int,
-    operator_id: int,
-    repo: Annotated[RequestsRepo, Depends(get_repo)],
-):
-    support_chat_handler = SupportChatWebsocket(manager, repo)
-    await support_chat_handler.handle_connection()
-
-
 app.include_router(api_router)
+app.include_router(admin_router)
 
 if __name__ == "__main__":
     uvicorn.run(
