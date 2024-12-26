@@ -90,3 +90,24 @@ class PrivateChatWebsocket:
 
         except WebSocketDisconnect:
             self.manager.disconnect(websocket=websocket, user_id=user_id)
+
+
+class SupportChatWebsocket:
+    def __init__(self, manager: WebsocketService, repo: RequestsRepo):
+        self.manager = manager
+        self.repo = repo
+
+    async def handle_connection(
+        self,
+        websocket: WebSocket,
+        user_id: int,
+        operator_id: int,
+    ):
+        await self.manager.connect(websocket=websocket, user_id=user_id)
+        print(operator_id)
+        try:
+            while True:
+                data = await websocket.receive_json()
+                print(data)
+        except WebSocketDisconnect:
+            self.manager.disconnect(websocket=websocket, user_id=user_id)

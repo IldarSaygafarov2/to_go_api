@@ -24,3 +24,11 @@ async def get_pages_html(request: Request):
         "request": request,
     }
     return templates.TemplateResponse(name="private_chat.html", context=context)
+
+
+@router.get("/support")
+async def get_support_page_html(request: Request):
+    context = {
+        "request": request,
+    }
+    return templates.TemplateResponse(name="support.html", context=context)

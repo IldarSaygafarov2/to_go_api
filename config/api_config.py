@@ -25,6 +25,7 @@ class ApiV1Prefix:
     pages: str = "/pages"
     chat: str = "/chat"
     support: str = "/support"
+    operators: str = "/operators"
 
 
 @dataclass

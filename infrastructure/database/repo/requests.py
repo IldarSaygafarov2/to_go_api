@@ -8,7 +8,7 @@ from .fuel import FuelRepo
 from .place import PlaceRepo
 from .place_image import PlaceImageRepo
 from .place_rating import PlaceRatingRepo
-from .support import OperatorRepo, SupportMessageRepo
+from .support import OperatorRepo, SupportMessageRepo, SupportRoomRepo
 from .user import UserRepo, UserVerificationCodeRepo
 
 
@@ -59,3 +59,7 @@ class RequestsRepo:
     @property
     def support_messages(self) -> SupportMessageRepo:
         return SupportMessageRepo(self.session)
+
+    @property
+    def support_room(self) -> SupportRoomRepo:
+        return SupportRoomRepo(self.session)

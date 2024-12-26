@@ -4,6 +4,7 @@ from backend.app.config import config
 
 from .routes.auth import router as auth_router
 from .routes.chat import router as chat_router
+from .routes.operators import router as operator_router
 from .routes.pages import router as pages_router
 from .routes.places import router as places_router
 from .routes.support import router as support_router
@@ -19,3 +20,4 @@ router.include_router(users_router)
 router.include_router(pages_router)
 router.include_router(chat_router)
 router.include_router(support_router)
+router.include_router(operator_router)

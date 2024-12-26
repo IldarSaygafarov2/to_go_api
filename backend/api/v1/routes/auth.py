@@ -11,7 +11,7 @@ from backend.core.services.jwt_service import JwtService
 from backend.core.services.sms_service import SMSService
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.utils.helpers import generate_code
-from messages.auth import SMS_REGISTRATION_MESSAGE, SMS_REGISTRATION_MESSAGE_V2
+from messages.auth import SMS_MESSAGE
 
 router = APIRouter(
     prefix=config.api_prefix.v1.auth,
@@ -58,7 +58,7 @@ async def send_code(
 
     sms_service.send_message(
         phone_number=user_data.phone_number,
-        message=SMS_REGISTRATION_MESSAGE_V2.format(code=verification_code),
+        message=SMS_MESSAGE.format(code=verification_code),
     )
 
     return UserAuthDTO.model_validate(new_verified, from_attributes=True)
