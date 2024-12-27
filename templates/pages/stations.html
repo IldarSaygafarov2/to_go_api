@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Заправки
+{% endblock %}
+
+{% block content %}
+    <div class="contentpanel">
+        <div class="table-responsive">
+            <table class="table mb30">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Название</th>
+                    <th>Адрес</th>
+                    <th>Время работы</th>
+                    <th>Категория</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for station in stations %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td><a href="{{ url_for('station_detail', station_id=station.id) }}">{{ station.name }}</a></td>
+                        <td>{{ station.address }}</td>
+                        <td>{{ station.working_hours }}</td>
+                        <td>{{ station.category }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <ul class="pagination mt5">
+                <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                <li><a href="#">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+            </ul>
+        </div><!-- table-responsive -->
+    </div><!-- contentpanel -->
+{% endblock %}

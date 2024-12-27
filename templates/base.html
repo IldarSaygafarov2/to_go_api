@@ -12,18 +12,31 @@
         {% endblock %}
     </title>
     {% include 'components/_styles.html' %}
-
 </head>
 
 <body>
 
 {% if request.path != '/admin/login/' %}
     {% include 'components/_header.html' %}
+    <section>
+        <div class="mainwrapper">
+            {% include 'components/_sidebar.html' %}
+            <div class="mainpanel">
+                {% include 'components/_page-header.html' %}
+                {% block content %}
+
+                {% endblock %}
+            </div><!-- mainpanel -->
+        </div>
+    </section>
+{% else %}
+    {% block login_content %}
+
+    {% endblock %}
 {% endif %}
 
-{% block content %}
 
-{% endblock %}
+
 
 {% include 'components/_scripts.html' %}
 

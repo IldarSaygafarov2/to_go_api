@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Список операторов
+{% endblock %}
+
+{% block content %}
+    <div class="contentpanel">
+        <div class="table-responsive">
+            <table class="table mb30">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Fullname</th>
+                    <th>Telegram Username</th>
+                    <th>Telegram chat id</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for idx, operator in operators %}
+
+                    <tr>
+                        <td>{{ idx }}</td>
+                        <td><a href="{{ url_for('operator_detail', operator_id=operator.id) }}">{{ operator.fullname }}</a></td>
+                        <td>{{ operator.telegram_username }}</td>
+                        <td>{% if operator.telegram_chat_id %}{{ operator.telegram_chat_id }}{% else %}-{% endif %}</td>
+                        <td class="d-flex">
+                            <button class="btn btn-warning text-uppercase">edit</button>
+                            <button class="btn btn-danger text-uppercase">delete</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div><!-- table-responsive -->
+
+    </div><!-- contentpanel -->
+{% endblock %}
