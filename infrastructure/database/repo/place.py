@@ -4,7 +4,8 @@ from sqlalchemy import func, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import selectinload
 
-from infrastructure.database.models.place import Place, PlaceComment, PlaceRating
+from infrastructure.database.models.place import Place, PlaceComment
+from backend.core.filters.places import PlaceFilter
 
 from .base import BaseRepo
 
@@ -108,9 +109,8 @@ class PlaceRepo(BaseRepo):
         return result.scalar_one()
 
     async def get_place(self, place_id: int):
-        sub_stmt = select(func.avg(PlaceRating.rating)).where(PlaceRating.place_id == place_id).subquery()
         stmt = (
-            select(Place, sub_stmt)
+            select(Place)
             .where(Place.id == place_id)
             .options(
                 selectinload(Place.images),
@@ -119,4 +119,4 @@ class PlaceRepo(BaseRepo):
             )
         )
         result = await self.session.execute(stmt)
-        return result.fetchone()
+        return result.scalar_one()

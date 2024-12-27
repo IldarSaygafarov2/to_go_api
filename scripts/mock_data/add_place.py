@@ -41,7 +41,7 @@ async def add_mock_places(session: AsyncSession):
                 has_propane=obj["propane"],
                 has_praying_room=obj["praying_room"],
                 has_electric_charging=obj["electric_charging"],
-                user_id=1,
+                user_id=2,
             )
             places.append(place)
         except Exception as e:

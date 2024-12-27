@@ -45,27 +45,14 @@ class PlaceDetailDTO(BaseModel):
     phone_number: str
     yandex_map_link: str
     created_at: datetime
-    address: Optional[str]
-    working_hours: Optional[str]
     fuel_price: Optional[list[FuelDTO]]
     images: Optional[list[PlaceImageDTO]]
     comments: Optional[list[PlaceCommentDTO]]
 
 
-class PlaceDetailV2DTO(BaseModel):
+class PlaceImageDTO(BaseModel):
     id: int
-    name: str
-    category: str
-    coordinates: str
-    phone_number: str
-    yandex_map_link: str
-    created_at: datetime
-    address: Optional[str]
-    working_hours: Optional[str]
-    rating: Optional[float]
-    fuel_price: Optional[list[FuelDTO]]
-    images: Optional[list[PlaceImageDTO]]
-    comments: Optional[list[PlaceCommentDTO]]
+    url: str
 
 
 class PlaceCreateDTO(BaseModel):

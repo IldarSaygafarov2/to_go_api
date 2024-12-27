@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Private Chat</title>
+  </head>
+  <body>
+    <h1>Private Chat</h1>
+    <textarea id="messages" readonly></textarea><br />
+    <input type="text" id="message" placeholder="Type a message" />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+      const userId = prompt("user_Id: "); // Пример ID отправителя
+      const recipientId = prompt("recipient_Id"); // Пример ID получателя
+
+      const ws = new WebSocket(
+        `ws://{{ request.headers.host }}/ws/private/${userId}/${recipientId}`
+      );
+
+      ws.onmessage = (event) => {
+        console.log("afafafafa");
+        document.getElementById("messages").value += event.data + "\n";
+      };
+
+      function sendMessage() {
+        const message = document.getElementById("message").value;
+        const item = {
+          sender_id: userId,
+          recipient_id: recipientId,
+          content: message,
+        };
+        console.log(item);
+        ws.send(JSON.stringify(item));
+        document.getElementById("message").value = "";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support test chat</title>
+  </head>
+  <body>
+    <form action="" method="post" id="support_form">
+      <h2>Support chat</h2>
+      <textarea name="message" id=""></textarea>
+      <button>send</button>
+    </form>
+
+    <h2>Messages</h2>
+
+    <ol id="messages"></ol>
+  </body>
+
+  <script>
+    const URL = "http://127.0.0.1:8000/api/v1/";
+    const supportForm = document.querySelector("#support_form");
+
+    supportForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      fetch(`${URL}support/2/send_message`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Указываем тип контента
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Ошибка:", error); // Обработка ошибок
+        });
+
+      // Выводим данные формы в консоль
+      console.log(data);
+    });
+
+    const messagesBlock = document.querySelector("#messages");
+    const userId = 2;
+    const operatorId = 2;
+
+    function getRoomMessages() {
+      messagesBlock.innerHTML = "";
+      fetch(`${URL}support/${userId}/${operatorId}/messages`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data.messages);
+          data.messages.forEach((el) => {
+            messagesBlock.innerHTML += `<li>${el.message}</li>`;
+          });
+        });
+      console.log("recieved data");
+    }
+
+    // setInterval(getRoomMessages, 10000);
+  </script>
+</html>
