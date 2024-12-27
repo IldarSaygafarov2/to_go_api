@@ -12,7 +12,7 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Fullname</th>
+                    <th>Полное имя</th>
                     <th>Telegram Username</th>
                     <th>Telegram chat id</th>
                 </tr>
@@ -26,8 +26,8 @@
                         <td>{{ operator.telegram_username }}</td>
                         <td>{% if operator.telegram_chat_id %}{{ operator.telegram_chat_id }}{% else %}-{% endif %}</td>
                         <td class="d-flex">
-                            <button class="btn btn-warning text-uppercase">edit</button>
-                            <button class="btn btn-danger text-uppercase">delete</button>
+                            <button class="btn btn-warning text-uppercase">Редактировать</button>
+                            <button class="btn btn-danger text-uppercase">Удалить</button>
                         </td>
                     </tr>
                 {% endfor %}
