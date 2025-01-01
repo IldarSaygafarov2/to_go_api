@@ -50,6 +50,7 @@ class Place(Base, IntIdPkMixin):
     images: Mapped[list["PlaceImage"]] = relationship(back_populates="place")
     comments: Mapped[list["PlaceComment"]] = relationship(back_populates="place")
     rating: Mapped[list["PlaceRating"]] = relationship(back_populates="place")
+    user = relationship("User", back_populates="places")
 
     created_at: Mapped[created_at]
 

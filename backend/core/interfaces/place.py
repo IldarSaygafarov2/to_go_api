@@ -50,6 +50,7 @@ class PlaceDetailDTO(BaseModel):
     fuel_price: Optional[list[FuelDTO]]
     images: Optional[list[PlaceImageDTO]]
     comments: Optional[list[PlaceCommentDTO]]
+    user: UserProfileDTO
 
 
 class PlaceDetailV2DTO(BaseModel):
@@ -66,6 +67,7 @@ class PlaceDetailV2DTO(BaseModel):
     fuel_price: Optional[list[FuelDTO]]
     images: Optional[list[PlaceImageDTO]]
     comments: Optional[list[PlaceCommentDTO]]
+    user: UserProfileDTO
 
 
 class PlaceCreateDTO(BaseModel):

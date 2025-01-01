@@ -116,6 +116,7 @@ class PlaceRepo(BaseRepo):
                 selectinload(Place.images),
                 selectinload(Place.fuel_price),
                 selectinload(Place.comments).subqueryload(PlaceComment.user),
+                selectinload(Place.user)
             )
         )
         result = await self.session.execute(stmt)

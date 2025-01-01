@@ -2,11 +2,197 @@
 
 
 {% block title %}
-    Детальная страница заправки
+    {{ station.name }}
 {% endblock %}
 
 {% block content %}
     <div class="contentpanel">
-        <pre>{{ station.name }}</pre>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs nav-primary">
+                    <li class="active">
+                        <a href="#home4" data-toggle="tab">
+                            <strong>Общая информация</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#profile4" data-toggle="tab">
+                            <strong>Фотографии</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about4" data-toggle="tab">
+                            <strong>Тип топлива</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact4" data-toggle="tab">
+                            <strong>Комментарии</strong>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content tab-content-primary mb30">
+                    <div class="tab-pane active" id="home4">
+                        <h2>Добавлено пользователем: {{ station.user.fullname }}</h2>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div>Название</div>
+                                <p class="form-control">{{ station.name }}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>Адрес</div>
+                                <p class="form-control">{{ station.address }}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>Номер телефона</div>
+                                <p class="form-control">{{ station.phone_number }}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>Время работы</div>
+                                <p class="form-control">{{ station.working_hours }}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>Категория</div>
+                                <p class="form-control">{{ station.category }}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>Карта</div>
+                                <p class="form-control">-</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_gasoline</div>
+                                <p class="form-control">{% if station.has_gasoline %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_ai_80</div>
+                                <p class="form-control">{% if station.has_ai_80 %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_ai_91</div>
+                                <p class="form-control">{% if station.has_ai_91 %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_ai_95</div>
+                                <p class="form-control">{% if station.has_ai_95 %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_ai_98</div>
+                                <p class="form-control">{% if station.has_ai_98 %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_diesel</div>
+                                <p class="form-control">{% if station.has_diesel %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_wc</div>
+                                <p class="form-control">{% if station.has_wc %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_shop</div>
+                                <p class="form-control">{% if station.has_shop %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_wifi</div>
+                                <p class="form-control">{% if station.has_wifi %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_parking</div>
+                                <p class="form-control">{% if station.has_parking %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_cafe</div>
+                                <p class="form-control">{% if station.has_cafe %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_car_wash</div>
+                                <p class="form-control">{% if station.has_car_wash %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_tire_service</div>
+                                <p class="form-control">{% if station.has_tire_service %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_gas</div>
+                                <p class="form-control">{% if station.has_gas %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_methane</div>
+                                <p class="form-control">{% if station.has_methane %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_propane</div>
+                                <p class="form-control">{% if station.has_propane %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_praying_room</div>
+                                <p class="form-control">{% if station.has_praying_room %}Да{% else %}Нет{% endif %}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>has_electric_charging</div>
+                                <p class="form-control">{% if station.has_electric_charging %}Да{% else %}
+                                    Нет{% endif %}</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- tab-pane -->
+
+                    <div class="tab-pane" id="profile4">
+                        <div class="row media-manager">
+
+                            {% for image in station.images %}
+                                <div class="col-xs-6 col-sm-4 col-md-3 image">
+                                    <div class="thmb">
+                                        <div class="thmb-prev">
+                                            <a href="{{ request.base_url }}{{ image.url }}" data-rel="prettyPhoto">
+                                                <img src="{{ request.base_url }}{{ image.url }}" class="img-responsive"
+                                                     alt=""/>
+                                            </a>
+                                        </div>
+                                        {#                                        <h5 class="fm-title"><a href="">Vegetarian.png</a></h5>#}
+                                        {#                                        <small class="text-muted">Added: Jan 02, 2014</small>#}
+                                    </div><!-- thmb -->
+                                </div><!-- col-xs-6 -->
+                            {% endfor %}
+
+
+                        </div><!-- row -->
+                    </div>
+                    <!-- tab-pane -->
+
+                    <div class="tab-pane" id="about4">
+                        цены на топливо
+                        <ul class="list-group">
+                            {% for obj in station.fuel_price %}
+                                <li class="list-group-item">
+                                    <div>
+                                        <b>Тип топлива</b>: {{ obj.fuel_type.value }}
+                                    </div>
+                                    <div>
+                                        <b>Цена</b>: {{ obj.price }}
+                                    </div>
+                                    <div>
+                                        <b>Добавлено</b>: {{ obj.created_at }}
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- tab-pane -->
+
+                    <div class="tab-pane" id="contact4">
+                        <h4 class="nomargin">Contact title goes here...</h4>
+                        <p>Contact content goes here</p>
+                    </div>
+                    <!-- tab-pane -->
+                </div>
+                <!-- tab-content -->
+            </div>
+            <!-- col-md-6 -->
+        </div>
     </div>
 {% endblock %}

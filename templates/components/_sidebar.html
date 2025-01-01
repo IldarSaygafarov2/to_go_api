@@ -5,16 +5,13 @@
 {#        </a>#}
         <div class="media-body">
             <h4 class="media-heading">Ильдар Сайгафаров</h4>
-{#            <small class="text-muted">Beach Lover</small>#}
         </div>
     </div><!-- media -->
-
-{#    <h5 class="leftpanel-title">Navigation</h5>#}
     <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="{{ url_for('admin') }}"> <span>Главная</span></a></li>
-        <li><a href="{{ url_for('operators') }}"> <span>Операторы тех поддержки</span></a></li>
+        <li {% if request.path == '/admin/' %}class="active"{% endif %}><a href="{{ url_for('admin') }}"> <span>Главная</span></a></li>
+        <li {% if 'operators' in request.path %}class="active"{% endif %}><a href="{{ url_for('operators') }}"> <span>Операторы тех поддержки</span></a></li>
         <li><a href="{{ url_for('admin') }}"> <span>Заявки пользователей</span></a></li>
-        <li><a href="{{ url_for('stations') }}"> <span>Заправки</span></a></li>
+        <li {% if 'stations' in request.path %}class="active"{% endif %}><a href="{{ url_for('stations') }}"> <span>Заправки</span></a></li>
     </ul>
 
 </div><!-- leftpanel -->
