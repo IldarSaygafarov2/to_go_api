@@ -13,3 +13,11 @@ class WebUsersRepo(BaseRepo):
         stmt = select(WebUser).where(WebUser.id == user_id)
         result = await self.session.execute(stmt)
         return result.scalar_one_or_none()
+
+    async def get_user_by_username_and_password(self, username: str, password: str):
+        stmt = (
+            select(WebUser)
+            .where(WebUser.username == username, WebUser.password == password)
+        )
+        result = await self.session.execute(stmt)
+        return result.scalar_one_or_none()

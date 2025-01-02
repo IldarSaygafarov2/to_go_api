@@ -68,3 +68,7 @@ class RequestsRepo:
     @property
     def web_users(self) -> WebUsersRepo:
         return WebUsersRepo(self.session)
+
+    @property
+    def auth_session(self) -> SessionRepo:
+        return SessionRepo(self.session)

@@ -1,6 +1,7 @@
 from typing import Optional
 
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy import JSON
 
 from .base import Base, created_at
 from .mixins.int_id_pk import IntIdPkMixin
@@ -29,4 +30,4 @@ class User(Base, IntIdPkMixin):
         back_populates="sender",
         # foreign_keys=["messages.sender_id"],
     )
-    places = relationship('Place', back_populates='user')
+    places = relationship("Place", back_populates="user")

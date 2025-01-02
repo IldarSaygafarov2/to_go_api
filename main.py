@@ -1,25 +1,28 @@
-import string
 from typing import Annotated
 
 import uvicorn
+from fastapi import Depends, FastAPI, WebSocket, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+
 from admin.main import admin_router
 from backend.api import router as api_router
 from backend.app.config import config
 from backend.app.dependencies import get_repo
+from backend.core.services.auth import UnauthenticatedUser, AuthUser
 from backend.core.services.websocket import (
     GlobalChatWebsocket,
     PrivateChatWebsocket,
     WebsocketService,
 )
-from fastapi import Depends, FastAPI, WebSocket
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from infrastructure.database.repo.requests import RequestsRepo
+from infrastructure.database.setup import create_engine, create_session_pool
+
+engine = create_engine(config.db)
+_session = create_session_pool(engine)
+
 
 app = FastAPI()
-
-max_age = 3600
-session_choices = string.ascii_letters + string.digits + "=+%$#"
 
 app.mount("/media/", StaticFiles(directory="media"), name="media")
 app.mount("/static/", StaticFiles(directory="static"), name="static")
@@ -33,15 +36,55 @@ app.add_middleware(
 )
 
 
+@app.middleware("http")
+async def session_middleware(request: Request, call_next):
+    cookie_val = request.cookies.get("session")
+    if cookie_val:
+        request.scope["session"] = cookie_val
+    else:
+        request.scope["session"] = config.session.session_choices
+
+    response = await call_next(request)
+    response.set_cookie(
+        "session",
+        value=request.session,
+        max_age=config.session.max_age,
+        httponly=True,
+    )
+    return response
+
+
+@app.middleware("http")
+async def authentication_middleware(request: Request, call_next):
+    token = request.cookies.get("session")
+    async with _session() as session:
+        repo = RequestsRepo(session)
+
+    if not token:
+        request.scope["auth"] = ["anonymous"]
+        request.scope["user"] = UnauthenticatedUser()
+    else:
+        session = await repo.auth_session.get_session_by_token(token=token)
+        if session is None:
+            request.scope["auth"] = ["anonymous"]
+            request.scope["user"] = UnauthenticatedUser()
+        else:
+            auth_user = AuthUser(session, repo)
+            request.scope["user"] = auth_user
+            user = await auth_user.user()
+            request.scope["auth"] = user.scope
+    response = await call_next(request)
+    return response
+
 
 manager = WebsocketService()
 
 
 @app.websocket("/ws/global/{user_id}")
 async def websocket_global_chat(
-        websocket: WebSocket,
-        user_id: int,
-        repo: Annotated[RequestsRepo, Depends(get_repo)],
+    websocket: WebSocket,
+    user_id: int,
+    repo: Annotated[RequestsRepo, Depends(get_repo)],
 ):
     global_chat_handler = GlobalChatWebsocket(manager, repo=repo)
     await global_chat_handler.handle_connection(websocket, user_id)
@@ -49,10 +92,10 @@ async def websocket_global_chat(
 
 @app.websocket("/ws/private/{user_id}/{recipient_id}")
 async def websocket_private_chat(
-        websocket: WebSocket,
-        user_id: int,
-        recipient_id: int,
-        repo: Annotated[RequestsRepo, Depends(get_repo)],
+    websocket: WebSocket,
+    user_id: int,
+    recipient_id: int,
+    repo: Annotated[RequestsRepo, Depends(get_repo)],
 ):
     private_chat_handler = PrivateChatWebsocket(manager, repo=repo)
     await private_chat_handler.handle_connection(websocket, user_id, recipient_id)
