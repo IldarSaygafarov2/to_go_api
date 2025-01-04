@@ -1,5 +1,6 @@
 from typing import Annotated
 
+from fastapi.responses import RedirectResponse
 import uvicorn
 from fastapi import Depends, FastAPI, WebSocket, Request
 from fastapi.middleware.cors import CORSMiddleware

@@ -28,5 +28,7 @@ class AuthUser(BaseUser):
 
     async def user(self) -> User:
         if not self.__user:
-            self.__user = await self.repo.web_users.get_user(user_id=self.session.user_id)
+            self.__user = await self.repo.web_users.get_user(
+                user_id=self.session.user_id
+            )
         return self.__user
