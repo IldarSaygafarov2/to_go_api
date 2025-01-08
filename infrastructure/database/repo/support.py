@@ -67,6 +67,18 @@ class SupportRoomRepo(BaseRepo):
         result = await self.session.execute(stmt)
         return result.scalar_one_or_none()
 
+    async def get_support_rooms(self, operator_id: int):
+        stmt = (
+            select(SupportRoom)
+            .where(SupportRoom.operator_id == operator_id)
+            .options(
+                selectinload(SupportRoom.messages),
+                selectinload(SupportRoom.sender),
+            )
+        )
+        result = await self.session.execute(stmt)
+        return result.scalars().all()
+
     async def create_room(self, user_id: int, operator_id: int):
         stmt = (
             insert(SupportRoom)

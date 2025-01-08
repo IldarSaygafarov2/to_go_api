@@ -1,0 +1,445 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .chat-container {
+        display: flex;
+        gap: 10px;
+        height: 100vh;
+    }
+
+    .chat-sidebar {
+        width: auto;
+    }
+
+    .chat-button {
+        font-feature-settings: "liga" off, "clig" off;
+        border-radius: 5px;
+        background-color: rgba(225, 226, 255, 1);
+        box-shadow: 0 0 4px rgba(225, 226, 255, 1);
+        margin-top: 25px;
+        color: var(--Iris-100, #5d5fef);
+        text-transform: uppercase;
+        letter-spacing: 0.46px;
+        width: 100%;
+        padding: 6px 19px;
+        font: 500 15px/26px Roboto, sans-serif;
+    }
+
+    .chat-list {
+        width: auto;
+    }
+
+    .chat-list-container {
+        border-radius: 20px;
+        background-color: rgba(253, 253, 255, 1);
+        width: 100%;
+        padding: 20px 15px 104px;
+        border: 1px solid rgba(225, 226, 255, 1);
+        height: calc(100vh - 70px);
+    }
+
+    .chat-list-header {
+        color: rgba(0, 0, 0, 1);
+        margin-left: 14px;
+        font: 400 20px Public Sans, sans-serif;
+    }
+
+    .search-container {
+        display: flex;
+        margin-top: 20px;
+        width: 100%;
+        font-family: Roboto, sans-serif;
+    }
+
+    .search-input {
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 1);
+        display: flex;
+        gap: 20px;
+        font-size: 12px;
+        color: rgba(219, 219, 219, 1);
+        font-weight: 400;
+        flex-grow: 1;
+        padding: 12px;
+    }
+
+    .search-icon {
+        aspect-ratio: 1.04;
+        object-fit: contain;
+        width: 25px;
+        alt: "Search icon";
+    }
+
+    .chat-item {
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 1);
+        display: flex;
+        margin-top: 8px;
+        gap: 20px;
+        justify-content: space-between;
+        padding: 16px 40px 16px 14px;
+        border: 1px solid rgba(223, 224, 235, 1);
+    }
+
+    .chat-avatar {
+        aspect-ratio: 1;
+        object-fit: contain;
+        width: 40px;
+        border-radius: 64px;
+        alt: "User avatar";
+    }
+
+    .chat-info {
+        display: flex;
+        flex-direction: column;
+        font-family: Public Sans, sans-serif;
+    }
+
+    .chat-name {
+        color: rgba(0, 0, 0, 1);
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .chat-preview {
+        color: rgba(161, 161, 161, 1);
+        font-size: 12px;
+        font-weight: 400;
+        margin-top: 8px;
+    }
+
+    .chat-status {
+        display: flex;
+        flex-direction: column;
+        color: rgba(0, 0, 0, 1);
+        font: 400 12px Public Sans, sans-serif;
+    }
+
+    .chat-time {
+        margin-top: 8px;
+    }
+
+    .messages-content {
+        height: calc(100vh - 70px);
+        border-radius: 20px;
+        background-color: rgba(253, 253, 255, 1);
+        width: 100%;
+        padding-bottom: 22px;
+        border: 1px solid rgba(225, 226, 255, 1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .messages-header {
+        border-radius: 10px 10px 0 0;
+        background-color: rgba(255, 255, 255, 1);
+        display: flex;
+        width: 100%;
+        gap: 40px 100px;
+        flex-wrap: wrap;
+        padding: 32px 27px;
+        border: 1px solid rgba(223, 224, 235, 1);
+    }
+
+    .message-input {
+        border-radius: 10px;
+        border: 1px solid var(--Iris-60, #a5a6f6);
+        background-color: #fff;
+        display: flex;
+        margin-top: auto;
+        gap: 20px;
+        color: rgba(219, 219, 219, 1);
+        justify-content: space-between;
+        padding: 9px 16px 9px 32px;
+        font: 12px Public Sans, sans-serif;
+        justify-self: flex-end;
+    }
+
+    .message-actions {
+        aspect-ratio: 3;
+        object-fit: contain;
+        width: 120px;
+        border-radius: 0;
+        alt: "Message actions";
+    }
+
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    .chat-container {
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        font-weight: 400;
+    }
+
+    .message-wrapper-right {
+        align-self: end;
+        display: flex;
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .message-content-right {
+        display: flex;
+        gap: 15px;
+        color: rgba(255, 255, 255, 1);
+        letter-spacing: 0.14px;
+        font: 12px/20px Roboto, sans-serif;
+    }
+
+    .message-bubble-right {
+        border-radius: 10px;
+        background: var(--Iris-80, #7879f1);
+        flex-grow: 1;
+        width: fit-content;
+        padding: 9px 16px;
+    }
+
+    .user-avatar {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 30px;
+        border-radius: 64px;
+        min-height: 30px;
+        margin: auto 0;
+    }
+
+    .timestamp-right {
+        color: rgba(51, 51, 51, 1);
+        align-self: end;
+        margin: 7px 45px 0 0;
+        font: 10px Public Sans, sans-serif;
+    }
+
+    .message-wrapper-left {
+        display: flex;
+        margin-top: 66px;
+        gap: 30px;
+        font-family: Roboto, sans-serif;
+        letter-spacing: 0.14px;
+    }
+
+    .avatar-placeholder {
+        font-feature-settings: "liga" off, "clig" off;
+        flex: 1;
+        border-radius: 64px;
+        background: var(--Iris-80, #7879f1);
+        align-self: start;
+        margin-top: 8px;
+        min-height: 30px;
+        gap: 10px;
+        overflow: hidden;
+        font-size: 20px;
+        color: var(--Light-Background-Paper, #fff);
+        text-align: center;
+        line-height: 1;
+        width: 30px;
+        height: 30px;
+    }
+
+    .message-bubble-left {
+        font-feature-settings: "liga" off, "clig" off;
+        border-radius: 10px;
+        border: 1px solid var(--Iris-60, #a5a6f6);
+        background-color: #fff;
+        font-size: 12px;
+        color: var(--Iris-100, #5d5fef);
+        line-height: 20px;
+        flex-grow: 1;
+        width: fit-content;
+        padding: 9px 10px;
+    }
+
+    .timestamp-left {
+        color: rgba(51, 51, 51, 1);
+        z-index: 10;
+        margin: 8px 0 0 60px;
+        font: 10px Public Sans, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+        .timestamp-right {
+            margin-right: 10px;
+        }
+
+        .message-wrapper-left {
+            margin-top: 40px;
+        }
+
+        .avatar-placeholder {
+            white-space: initial;
+        }
+
+        .timestamp-left {
+            margin-left: 10px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .chat-container {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+        }
+
+        .chat-sidebar,
+        .chat-list,
+        .messages-container {
+            width: 100%;
+        }
+
+        .chat-button {
+            margin-top: 37px;
+        }
+
+        .chat-list-container {
+            margin-top: 12px;
+        }
+
+        .messages-content {
+            margin-top: 12px;
+        }
+
+        .messages-header {
+            padding: 0 20px;
+        }
+
+        .message-input {
+            padding-left: 20px;
+        }
+    }
+
+    .chat-container--custom {
+        flex-direction: row;
+    }
+
+    .messages-container--custom {
+        flex-grow: 1;
+    }
+
+    .chat-container--messages {
+        padding-top: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+</style>
+{% endblock extra_styles %}
+
+{% block content %}
+
+
+<div class="chat-container chat-container--custom">
+    <!-- <div class="chat-sidebar">
+    <button class="chat-button">chat</button>
+  </div> -->
+
+    <div class="chat-list">
+        <div class="chat-list-container">
+            <h2 class="chat-list-header">Сообщения</h2>
+
+            <div class="search-container">
+                <div class="search-input">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7dcb1e05cbf196c03f5eb9cbcf9726ae1a9e6a10716bd72aa1d35dc1e856e5f6?placeholderIfAbsent=true&apiKey=1c76fa4eaadb4e4d9345e15e06616a56"
+                        class="search-icon" alt="Search icon" />
+                    <span>Поиск</span>
+                </div>
+            </div>
+
+            {% for room in rooms %}
+
+            <div class="chat-item" room-id="room-{{ room.id }}" onclick="handleRoomClick(`{{ room.id }}`)">
+                {% if room.sender.user_photo %}
+                <img src="{{ request.base_url }}{{ room.sender.user_photo }}" class="chat-avatar"
+                    alt="Support admin avatar" />
+                {% else %}
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e5ee95ccb831410c61a0bbf43d6008b71aa24dc2dfff04d08b7e6632abbfe2bf?placeholderIfAbsent=true&apiKey=1c76fa4eaadb4e4d9345e15e06616a56"
+                    class="chat-avatar" alt="Support admin avatar" />
+                {% endif %}
+                <div class="chat-info">
+                    <span class="chat-name">{{ room.sender.phone_number }}</span>
+                    <!-- <span class="chat-preview">Pesquisar chat</span> -->
+                </div>
+                <div class="chat-status">
+                    <!-- <span>Espera</span> -->
+                    <span class="chat-time">{{ room.created_at }}</span>
+                </div>
+            </div>
+            {% endfor %}
+
+
+            <!-- Additional chat items following same pattern -->
+        </div>
+    </div>
+
+    <div class="messages-container messages-container--custom">
+        <div class="messages-content">
+            <div class="messages-header">
+                <div class="chat-info">
+                    <!-- <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/52fea3ae8aa8f1b4726890531275a54f355933003995c36c1794121c645c3e03?placeholderIfAbsent=true&apiKey=1c76fa4eaadb4e4d9345e15e06616a56"
+                        class="chat-avatar" alt="Current chat avatar" /> -->
+                    <div>
+                        <span class="chat-name">Оператор: {{ operator.fullname }}</span>
+                        <!-- <span>#CU6798H</span> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-container chat-container--messages">
+
+            </div>
+
+            <form class="message-input">
+                <label for="messageText" class="visually-hidden">Digite a mensagem</label>
+                <input type="text" id="messageText" placeholder="Digite a mensagem" aria-label="Digite a mensagem" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/dbce3d423dc2eaef3649b7c4b0e353a50e26902186f8f3fcd60c6c6cf26557c1?placeholderIfAbsent=true&apiKey=1c76fa4eaadb4e4d9345e15e06616a56"
+                    class="message-actions" alt="Message actions" />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block extra_script %}
+<script>
+    function handleRoomClick(roomId) {
+        const messagesContainer = document.querySelector('.chat-container--messages')
+        messagesContainer.innerHTML = ''
+        fetch(`{{ request.base_url }}api/v1/support/${roomId}/messages`)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                data.forEach(obj => {
+                    console.log(obj)
+                    messagesContainer.innerHTML += `
+                    <div class="message-wrapper-${Number(`{{ request.user.id }}`) !== obj.sender_id ? 'left' : 'right'}">
+                        <div class="message-content-right">
+                            <div class="message-bubble-right">
+                                ${obj.message}
+                            </div>
+                        </div>
+                        <div class="timestamp-right">${obj.created_at}</div>
+                    </div>
+                    `
+                })
+            })
+
+    }
+</script>
+{% endblock extra_script %}

@@ -19,8 +19,13 @@ from backend.core.services.websocket import (
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.database.setup import create_engine, create_session_pool
 
-engine = create_engine(config.db)
-_session = create_session_pool(engine)
+
+async def connect_to_session():
+    engine = create_engine(config.db)
+    _session = create_session_pool(engine)
+    async with _session() as session:
+        repo = RequestsRepo(session)
+    return repo
 
 
 app = FastAPI()
@@ -58,9 +63,7 @@ async def session_middleware(request: Request, call_next):
 @app.middleware("http")
 async def authentication_middleware(request: Request, call_next):
     token = request.cookies.get("session")
-    async with _session() as session:
-        repo = RequestsRepo(session)
-
+    repo = await connect_to_session()
     if not token:
         request.scope["auth"] = ["anonymous"]
         request.scope["user"] = UnauthenticatedUser()
@@ -73,6 +76,7 @@ async def authentication_middleware(request: Request, call_next):
             auth_user = AuthUser(session, repo)
             request.scope["user"] = auth_user
             user = await auth_user.user()
+            request.scope["_user"] = user
             request.scope["auth"] = user.scope
     response = await call_next(request)
     return response

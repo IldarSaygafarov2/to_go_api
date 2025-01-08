@@ -17,6 +17,7 @@ class SupportRoom(Base, IntIdPkMixin):
     created_at: Mapped[created_at]
 
     messages: Mapped[list["SupportMessage"]] = relationship(back_populates="room")
+    sender = relationship("User", back_populates="support_room")
 
 
 class SupportMessage(Base, IntIdPkMixin):

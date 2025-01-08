@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -12,11 +13,15 @@
         {% endblock %}
     </title>
     {% include 'components/_styles.html' %}
+
+    {% block extra_styles %}
+    {% endblock extra_styles %}
+
 </head>
 
 <body>
 
-{% if request.path != '/admin/auth/login/' %}
+    {% if request.path != '/admin/auth/login/' %}
     {% include 'components/_header.html' %}
     <section>
         <div class="mainwrapper">
@@ -29,16 +34,19 @@
             </div><!-- mainpanel -->
         </div>
     </section>
-{% else %}
+    {% else %}
     {% block login_content %}
 
     {% endblock %}
-{% endif %}
+    {% endif %}
 
 
 
 
-{% include 'components/_scripts.html' %}
+    {% include 'components/_scripts.html' %}
 
+    {% block extra_script %}
+    {% endblock extra_script %}
 </body>
+
 </html>

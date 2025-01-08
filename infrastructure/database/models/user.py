@@ -31,3 +31,4 @@ class User(Base, IntIdPkMixin):
         # foreign_keys=["messages.sender_id"],
     )
     places = relationship("Place", back_populates="user")
+    support_room = relationship("SupportRoom", back_populates="sender")

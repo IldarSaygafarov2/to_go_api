@@ -77,3 +77,12 @@ async def get_room_messages(
         cache.set(f"room:{room.id}", json.dumps(room.model_dump(), ensure_ascii=False))
 
     return json.loads(in_cache) if in_cache else room
+
+
+@router.get("/{room_id}/messages/")
+async def get_room_messages_by_room_id(
+    room_id: int,
+    repo: Annotated[RequestsRepo, Depends(get_repo)],
+):
+    messages = await repo.support_messages.get_room_messages(room_id=room_id)
+    return messages

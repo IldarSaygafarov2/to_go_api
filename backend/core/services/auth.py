@@ -1,4 +1,4 @@
-from infrastructure.database.models import Session, User
+from infrastructure.database.models import Session, WebUser
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.database.setup import create_engine, create_session_pool
 from backend.app.config import config
@@ -26,9 +26,13 @@ class AuthUser(BaseUser):
     def is_authenticated(self) -> bool:
         return True
 
-    async def user(self) -> User:
+    async def user(self) -> WebUser:
         if not self.__user:
             self.__user = await self.repo.web_users.get_user(
                 user_id=self.session.user_id
             )
         return self.__user
+
+    @property
+    def id(self):
+        return self.__user.id

@@ -25,7 +25,7 @@ async def admin_login(request: Request):
     return templates.TemplateResponse("pages/login.html", {"request": request})
 
 
-@router.post("/login/", name="login")
+@router.post("/login/", name="login_auth")
 async def admin_login(
     request: Request, repo: Annotated[RequestsRepo, Depends(get_repo)]
 ):
@@ -54,6 +54,9 @@ async def admin_login(
     auth_user = AuthUser(session, repo)
     auth_user.__user = user
     request.scope["user"] = auth_user
+
+    if user.is_operator:
+        return RedirectResponse("/admin/support/")
     return templates.TemplateResponse("pages/index.html", {"request": request})
 
 
