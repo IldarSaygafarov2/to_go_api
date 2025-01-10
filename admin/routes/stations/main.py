@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Request, Form
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 
@@ -56,3 +56,8 @@ async def admin_station_detail(
         "tabs_list": tabs_list,
     }
     return templates.TemplateResponse("pages/station_detail.html", context)
+
+
+@router.post('/stations/{station_id}/edit/')
+async def admin_station_edit(request: Request, form_data=Form(...)):
+    return {}

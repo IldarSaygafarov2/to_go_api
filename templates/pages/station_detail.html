@@ -26,200 +26,11 @@
     <div class="row">
         <div class="col-md-12">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs nav-primary">
-                {% for item in tabs_list %}
-                <li class="{% if loop.index == 1 %}active{% endif %}">
-                    <a href="#{{ item.href }}" data-toggle="tab">
-                        <strong>{{ item.name }}</strong>
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
+            {% include 'components/pages/station/_tabs.html' %}
 
             <!-- Tab panes -->
             <div class="tab-content tab-content-primary mb30">
-                <div class="tab-pane active" id="commonTab">
-                    <h2>Добавлено пользователем: {{ station.user.fullname }}</h2>
-                    <form class="row station-form" method="post">
-                        <div class="col-sm-6">
-                            <div>Название</div>
-                            <input name="name" type="text" class="form-control" value="{{ station.name }}" disabled>
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Адрес</div>
-                            <input name='address' type="text" class="form-control" value="{{ station.address }}"
-                                disabled>
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Номер телефона</div>
-                            <input name='phone_number' type="text" class="form-control"
-                                value="{{ station.phone_number }}" disabled>
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Время работы</div>
-                            <input name='working_hours' type="text" class="form-control"
-                                value="{{ station.working_hours }}" disabled>
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Категория</div>
-                            <input name='category' type="text" class="form-control" value="{{ station.category }}"
-                                disabled>
-                        </div>
-                        <!-- <div class="col-sm-6">
-                            <div>Карта</div>
-                            <p class="form-control">-</p>
-                        </div> -->
-                        <div class="col-sm-6">
-                            <div>Газолин</div>
-                            <!-- <p class="form-control">{% if station.has_gasoline %}Да{% else %}Нет{% endif %}</p> -->
-                            <select name="has_gasoline" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6">
-                            <div>АИ 80</div>
-                            <select name="has_ai_80" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_ai_80 %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>АИ 91</div>
-                            <select name="has_ai_91" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_ai_91 %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>АИ 95</div>
-                            <select name="has_ai_95" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_ai_95 %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>АИ 98</div>
-                            <select name="has_ai_98" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_ai_98 %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Дизель</div>
-                            <select name="has_diesel" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_diesel %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Туалет</div>
-                            <select name="has_wc" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_wc %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Магазин</div>
-                            <select name="has_shop" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_shop %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>WI-FI</div>
-                            <select name="has_wifi" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_wifi %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Парковка</div>
-                            <select name="has_parking" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_parking %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Кафе</div>
-                            <select name="has_cafe" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_cafe %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Автомойка</div>
-                            <select name="has_car_wash" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_car_wash %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Шиномонтаж</div>
-                            <select name="has_tire_service" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_tire_service %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Газ</div>
-                            <select name="has_gas" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_gas %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Метан</div>
-                            <select name="has_methane" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_methane %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Пропан</div>
-                            <select name="has_propane" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_propane %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Комната для молитв</div>
-                            <select name="has_praying_room" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                            <!-- <p class="form-control">{% if station.has_praying_room %}Да{% else %}Нет{% endif %}</p> -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div>Электрическая заправка</div>
-                            <select name="has_electric_charging" id="" class="form-control" disabled>
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>'
-                            <!-- <p class="form-control">{% if station.has_electric_charging %}Да{% else %}
-                                Нет{% endif %}</p> -->
-                        </div>
-
-
-                    </form>
-                    <button class="btn btn-warning text-uppercase">Редактировать</button>
-                    <button class="btn btn-danger text-uppercase">Удалить</button>
-                </div>
+                {% include 'components/pages/station/_form.html' %}
 
                 <div class="tab-pane" id="photoTab">
                     <div class="row media-manager">
@@ -274,4 +85,28 @@
         <!-- col-md-6 -->
     </div>
 </div>
+{% endblock %}
+
+
+{% block extra_script %}
+    <script>
+        const formEditButton = document.querySelector('#formEditButton');
+        const saveButton = document.querySelector('.save-btn');
+        const formItems = document.querySelectorAll('.station-form-item');
+
+
+        formEditButton.addEventListener('click', () => {
+            saveButton.classList.toggle('hidden');
+
+            formItems.forEach(item => {
+                if (item.hasAttribute('disabled')) {
+                    item.removeAttribute('disabled');
+                } else {
+                    item.setAttribute('disabled', '');
+                }
+
+            })
+        })
+
+    </script>
 {% endblock %}

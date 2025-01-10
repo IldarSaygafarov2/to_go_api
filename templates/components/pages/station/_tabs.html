@@ -1,0 +1,9 @@
+<ul class="nav nav-tabs nav-primary">
+    {% for item in tabs_list %}
+    <li class="{% if loop.index == 1 %}active{% endif %}">
+        <a href="#{{ item.href }}" data-toggle="tab">
+            <strong>{{ item.name }}</strong>
+        </a>
+    </li>
+    {% endfor %}
+</ul>

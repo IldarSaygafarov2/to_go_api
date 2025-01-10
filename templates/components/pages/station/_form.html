@@ -1,0 +1,162 @@
+<div class="tab-pane active" id="commonTab">
+    <h2>Добавлено пользователем: {{ station.user.fullname }}</h2>
+    <form class="row station-form" method="post">
+        <div class="col-sm-6">
+            <label for="station_name">Название</label>
+            <input name="name" type="text" class="form-control station-form-item" value="{{ station.name }}" disabled  id="station_name">
+        </div>
+        <div class="col-sm-6">
+            <label for="station_address">Адрес</label>
+            <input name='address' type="text" class="form-control station-form-item" value="{{ station.address }}"
+                   disabled id="station_address">
+        </div>
+        <div class="col-sm-6">
+            <label for="station_phone_number">Номер телефона</label>
+            <input name='phone_number' type="text" class="form-control station-form-item"
+                   value="{{ station.phone_number }}" disabled id="station_phone_number">
+        </div>
+        <div class="col-sm-6">
+            <label for="station_working_hours">Время работы</label>
+            <input name='working_hours' type="text" class="form-control station-form-item"
+                   value="{{ station.working_hours }}" disabled id="station_working_hours">
+        </div>
+        <div class="col-sm-6">
+            <label for="station_category">Категория</label>
+            <input name='category' type="text" class="form-control station-form-item" value="{{ station.category }}"
+                   disabled id="station_category">
+        </div>
+        <div class="col-sm-6">
+            <label for="station_gasoline">Газолин</label>
+            <select name="has_gasoline" id="station_gasoline" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_ai_80">АИ 80</label>
+            <select name="has_ai_80" id="station_ai_80" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_ai_91">АИ 91</label>
+            <select name="has_ai_91" id="station_ai_91" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_ai_95">АИ 95</label>
+            <select name="has_ai_95" id="station_ai_95" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_ai_98">АИ 98</label>
+            <select name="has_ai_98" id="station_ai_98" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_diesel">Дизель</label>
+            <select name="has_diesel" id="station_diesel" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_wc">Туалет</label>
+            <select name="has_wc" id="station_wc" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_shop">Магазин</label>
+            <select name="has_shop" id="station_shop" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_wifi">WI-FI</label>
+            <select name="has_wifi" id="station_wifi" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+
+        <div class="col-sm-6">
+            <label for="station_parking">Парковка</label>
+            <select name="has_parking" id="station_parking" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_cafe">Кафе</label>
+            <select name="has_cafe" id="station_cafe" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_car_washing">Автомойка</label>
+            <select name="has_car_wash" id="station_car_washing" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_tire_service">Шиномонтаж</label>
+            <select name="has_tire_service" id="station_tire_service" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_gas">Газ</label>
+            <select name="has_gas" id="station_gas" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_methane">Метан</label>
+            <select name="has_methane" id="station_methane" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_propane">Пропан</label>
+            <select name="has_propane" id="station_propane" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_praying_room">Комната для молитв</label>
+            <select name="has_praying_room" id="station_praying_room" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="station_electric_charging">Электрическая заправка</label>
+            <select name="has_electric_charging" id="station_electric_charging" class="form-control station-form-item" disabled>
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
+        </div>
+        <div class="col-sm-12">
+            <button class="save-btn btn btn-success text-uppercase hidden">Сохранить</button>
+            <div class="btn btn-warning text-uppercase" id="formEditButton">Редактировать</div>
+            <a href="" class="btn btn-danger text-uppercase">Удалить</a>
+        </div>
+    </form>
+
+</div>
