@@ -89,24 +89,24 @@
 
 
 {% block extra_script %}
-    <script>
-        const formEditButton = document.querySelector('#formEditButton');
-        const saveButton = document.querySelector('.save-btn');
-        const formItems = document.querySelectorAll('.station-form-item');
+<script>
+    const formEditButton = document.querySelector('#formEditButton');
+    const saveButton = document.querySelector('.save-btn');
+    const formItems = document.querySelectorAll('.station-form-item');
 
 
-        formEditButton.addEventListener('click', () => {
-            saveButton.classList.toggle('hidden');
+    formEditButton.addEventListener('click', () => {
+        saveButton.classList.toggle('hidden');
 
-            formItems.forEach(item => {
-                if (item.hasAttribute('disabled')) {
-                    item.removeAttribute('disabled');
-                } else {
-                    item.setAttribute('disabled', '');
-                }
+        formItems.forEach(item => {
+            if (item.hasAttribute('disabled')) {
+                item.removeAttribute('disabled');
+            } else {
+                item.setAttribute('disabled', '');
+            }
 
-            })
         })
+    })
 
-    </script>
+</script>
 {% endblock %}

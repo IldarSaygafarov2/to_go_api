@@ -31,12 +31,16 @@ async def update_user_profile(
     user_photo: Optional[UploadFile] = File(None),
 ) -> UserProfileDTO:
     user = await repo.users.get_user_by_phone_number(phone_number=phone_number)
-    _dir = create_user_profile_dir(user.id)
 
-    file_name = user_photo.filename
-    path = _dir / file_name
-    with open(path, "wb") as file:
-        file.write(await user_photo.read())
+    if user_photo:
+        _dir = create_user_profile_dir(user.id)
+
+        file_name = user_photo.filename
+        path = _dir / file_name
+        with open(path, "wb") as file:
+            file.write(await user_photo.read())
+    else:
+        path = ""
 
     user_profile = await repo.users.update_user(
         user_id=user.id,
