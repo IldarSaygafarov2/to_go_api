@@ -24,7 +24,7 @@ tabs_list = [
 ]
 
 
-@router.get("/stations/", name="stations")
+@router.get("/", name="stations")
 async def admin_all_stations(
     request: Request, repo: Annotated[RequestsRepo, Depends(get_repo)], page: int = 1
 ):
@@ -39,10 +39,10 @@ async def admin_all_stations(
         "total_places": total_places,
         "page": page,
     }
-    return templates.TemplateResponse("pages/stations.html", context)
+    return templates.TemplateResponse("pages/stations/list.html", context)
 
 
-@router.get("/stations/{station_id}", name="station_detail")
+@router.get("/{station_id}", name="station_detail")
 async def admin_station_detail(
     request: Request, station_id: int, repo: Annotated[RequestsRepo, Depends(get_repo)]
 ):
@@ -55,9 +55,9 @@ async def admin_station_detail(
         "station": station,
         "tabs_list": tabs_list,
     }
-    return templates.TemplateResponse("pages/station_detail.html", context)
+    return templates.TemplateResponse("pages/stations/detail.html", context)
 
 
-@router.post('/stations/{station_id}/edit/')
+@router.post("/stations/{station_id}/edit/")
 async def admin_station_edit(request: Request, form_data=Form(...)):
     return {}

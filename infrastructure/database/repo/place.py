@@ -108,7 +108,11 @@ class PlaceRepo(BaseRepo):
         return result.scalar_one()
 
     async def get_place(self, place_id: int):
-        sub_stmt = select(func.avg(PlaceRating.rating)).where(PlaceRating.place_id == place_id).subquery()
+        sub_stmt = (
+            select(func.avg(PlaceRating.rating))
+            .where(PlaceRating.place_id == place_id)
+            .subquery()
+        )
         stmt = (
             select(Place, sub_stmt)
             .where(Place.id == place_id)
@@ -116,7 +120,7 @@ class PlaceRepo(BaseRepo):
                 selectinload(Place.images),
                 selectinload(Place.fuel_price),
                 selectinload(Place.comments).subqueryload(PlaceComment.user),
-                selectinload(Place.user)
+                selectinload(Place.user),
             )
         )
         result = await self.session.execute(stmt)

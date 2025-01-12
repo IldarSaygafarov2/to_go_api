@@ -8,3 +8,11 @@
 .leftpanel .profile-left {
     min-height: auto;
 }
+
+
+.station-comments-item {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   
+}

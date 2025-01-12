@@ -22,12 +22,22 @@ auth_login_url = "/admin/auth/login/"
 
 
 @admin_router.get("/", name="admin")
-async def show_admin_home_page(request: Request):
+async def show_admin_home_page(
+    request: Request, repo: Annotated[RequestsRepo, Depends(get_repo)]
+):
     print("METHOD", request.method)
     if not request.user.is_authenticated:
         return RedirectResponse(url=auth_login_url)
 
-    return templates.TemplateResponse("pages/index.html", {"request": request})
+    total_users = await repo.users.get_total_users()
+    total_places = await repo.places.count_total_places()
+
+    context = {
+        "request": request,
+        "total_users": total_users,
+        "total_places": total_places,
+    }
+    return templates.TemplateResponse("pages/index.html", context)
 
 
 @admin_router.get("/profile/", name="profile")

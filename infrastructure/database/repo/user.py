@@ -1,4 +1,4 @@
-from sqlalchemy import select, update
+from sqlalchemy import func, select, update
 from sqlalchemy.dialects.postgresql import insert
 
 from infrastructure.database.models import User, UserVerificationCode
@@ -36,6 +36,11 @@ class UserRepo(BaseRepo):
         updated = await self.session.execute(stmt)
         await self.session.commit()
         return updated.scalar_one()
+
+    async def get_total_users(self):
+        stmt = select(func.count(User.id))
+        result = await self.session.execute(stmt)
+        return result.scalar_one()
 
 
 class UserVerificationCodeRepo(BaseRepo):
