@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Operator
+    {{ operator.fullname }}
 {% endblock %}
 
 
 {% block content %}
 <div class="contentpanel">
     <div class="panel panel-default">
-        <form class="panel-body">
+        <form class="panel-body" id="operator-form" method="post"
+              action="{{ url_for('operator_update', operator_id=operator.id) }}">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="control-label">Fullname</label>
-                        <input type="text" name="operator_fullname" class="form-control"
+                        <input type="text" name="fullname" class="form-control"
                             value="{{ operator.fullname }}" />
                     </div><!-- form-group -->
                 </div><!-- col-sm-6 -->
@@ -21,24 +22,28 @@ Operator
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="control-label">Telegram username</label>
-                        <input type="text" name="operator_telegram_username" class="form-control"
+                        <input type="text" name="telegram_username" class="form-control"
                             value="{{ operator.telegram_username }}" />
                     </div><!-- form-group -->
                 </div><!-- col-sm-6 -->
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="control-label">Telegram chat id</label>
-                        <input type="text" name="operator_telegram_chat_id" class="form-control"
+                        <input type="text" name="telegram_chat_id" class="form-control"
                             value="{{ operator.telegram_chat_id }}" />
                     </div><!-- form-group -->
                 </div><!-- col-sm-6 -->
             </div><!-- row -->
 
-
+            <button class="btn btn-primary" type="submit">Отправить</button>
         </form><!-- panel-body -->
-        <div class="panel-footer">
-            <button class="btn btn-primary">Submit Card</button>
-        </div><!-- panel-footer -->
+
     </div><!-- panel -->
 </div>
+{% endblock %}
+
+{% block extra_script %}
+    <script>
+        console.log('working')
+    </script>
 {% endblock %}

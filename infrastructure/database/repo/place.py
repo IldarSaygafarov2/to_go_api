@@ -1,6 +1,6 @@
 import uuid
 
-from sqlalchemy import func, select
+from sqlalchemy import func, select, update
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import selectinload
 
@@ -125,3 +125,15 @@ class PlaceRepo(BaseRepo):
         )
         result = await self.session.execute(stmt)
         return result.fetchone()
+
+    async def update_place(self, place_id: int, **fields):
+        stmt = (
+            update(Place)
+            .where(Place.id == place_id)
+            .values(**fields)
+            .returning(Place)
+        )
+        result = await self.session.execute(stmt)
+        await self.session.commit()
+        return result.scalar_one()
+

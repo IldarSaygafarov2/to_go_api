@@ -2,6 +2,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, Request, Form
 from fastapi.responses import RedirectResponse
+
 from fastapi.templating import Jinja2Templates
 
 from backend.app.dependencies import get_repo
@@ -48,6 +49,7 @@ async def admin_station_detail(
 ):
     if not request.user.is_authenticated:
         return RedirectResponse(url=auth_login_url)
+
     station, _ = await repo.places.get_place(place_id=station_id)
 
     context = {
@@ -58,6 +60,25 @@ async def admin_station_detail(
     return templates.TemplateResponse("pages/stations/detail.html", context)
 
 
-@router.post("/stations/{station_id}/edit/")
-async def admin_station_edit(request: Request, form_data=Form(...)):
-    return {}
+@router.post("/{station_id}/edit/", name='station_edit')
+async def admin_station_edit(request: Request, station_id: int, repo: Annotated[RequestsRepo, Depends(get_repo)]):
+    print('method', request.method)
+    form_data = await request.form()
+    data = dict(form_data.items())
+
+    for key, value in data.items():
+        if key.startswith('has'):
+            data[key] = True if value == 'Да' else False
+    await repo.places.update_place(place_id=station_id, **data)
+    redirect_url = request.url_for('station_detail', station_id=station_id)
+    return RedirectResponse(url=redirect_url, status_code=302)
+
+
+@router.get('/{station_id}/comments/{comment_id}/', name='delete_comment')
+async def delete_comment(
+        request: Request, station_id: int, comment_id: int,
+        repo: Annotated[RequestsRepo, Depends(get_repo)]
+):
+    await repo.place_comments.delete_comment(comment_id=comment_id)
+    redirect_url = request.url_for('station_detail', station_id=station_id)
+    return RedirectResponse(redirect_url)

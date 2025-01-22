@@ -13,7 +13,7 @@
       </div>
       #}
 
-      <h4 class="text-center mb5">Sign in to your account</h4>
+        <h4 class="text-center mb5">Войти в аккаунт</h4>
 
       <div class="mb30"></div>
 
@@ -29,10 +29,14 @@
         </div>
         <!-- input-group -->
 
+
+          {% if error %}
+              <p class="text-danger">{{ error }}</p>
+          {% endif %}
         <div class="clearfix">
           <div class="pull-right">
             <button type="submit" class="btn btn-success">
-              Sign In <i class="fa fa-angle-right ml5"></i>
+                Войти <i class="fa fa-angle-right ml5"></i>
             </button>
           </div>
         </div>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Добавить оператора
+{% endblock %}
+
+
+{% block content %}
+<div class="contentpanel">
+    <div class="panel panel-default">
+        <form class="panel-body" id="operator-form" method="post"
+              action="{{ url_for('operator_create') }}">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="control-label">Fullname</label>
+                        <input type="text" name="fullname" class="form-control"/>
+                    </div><!-- form-group -->
+                </div><!-- col-sm-6 -->
+
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="control-label">Telegram username</label>
+                        <input type="text" name="telegram_username" class="form-control"/>
+                    </div><!-- form-group -->
+                </div><!-- col-sm-6 -->
+{#                <div class="col-sm-12">#}
+{#                    <div class="form-group">#}
+{#                        <label class="control-label">Telegram chat id</label>#}
+{#                        <input type="text" name="telegram_chat_id" class="form-control"/>#}
+{#                    </div><!-- form-group -->#}
+{#                </div><!-- col-sm-6 -->#}
+            </div><!-- row -->
+
+            <button class="btn btn-primary" type="submit">Отправить</button>
+        </form><!-- panel-body -->
+
+    </div><!-- panel -->
+</div>
+{% endblock %}
+
+{% block extra_script %}
+    <script>
+        console.log('working')
+    </script>
+{% endblock %}

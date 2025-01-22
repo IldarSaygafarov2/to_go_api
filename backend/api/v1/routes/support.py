@@ -22,6 +22,14 @@ router = APIRouter(
 telegram_service = get_telegram_service()
 
 
+@router.get('/rooms/')
+async def get_all_rooms(
+        repo: Annotated[RequestsRepo, Depends(get_repo)]
+):
+    rooms = await repo.support_room.get_all_rooms()
+    return rooms
+
+
 @router.post("/{user_id}/send_message")
 async def send_user_message_to_operators(
     user_id: int,

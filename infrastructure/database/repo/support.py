@@ -39,6 +39,17 @@ class OperatorRepo(BaseRepo):
         await self.session.commit()
         return result.scalar_one()
 
+    async def update_operator(self, operator_id: int, **fields):
+        stmt = (
+            update(Operator)
+            .where(Operator.id == operator_id)
+            .values(**fields)
+            .returning(Operator)
+        )
+        result = await self.session.execute(stmt)
+        await self.session.commit()
+        return result.scalar_one()
+
     async def get_operator_by_telegram_username(self, telegram_username: str):
         stmt = select(Operator).where(Operator.telegram_username == telegram_username)
         result = await self.session.execute(stmt)
@@ -76,6 +87,11 @@ class SupportRoomRepo(BaseRepo):
                 selectinload(SupportRoom.sender),
             )
         )
+        result = await self.session.execute(stmt)
+        return result.scalars().all()
+
+    async def get_all_rooms(self):
+        stmt = select(SupportRoom).options(selectinload(SupportRoom.messages))
         result = await self.session.execute(stmt)
         return result.scalars().all()
 

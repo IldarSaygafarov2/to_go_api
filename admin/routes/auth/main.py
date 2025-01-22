@@ -21,7 +21,7 @@ router = APIRouter(
 @router.get("/login/", name="login")
 async def admin_login(request: Request):
     if request.user.is_authenticated:
-        return RedirectResponse("/admin/")
+        return RedirectResponse("/admin/", status_code=302)
     return templates.TemplateResponse("pages/login.html", {"request": request})
 
 
@@ -38,7 +38,7 @@ async def admin_login(
     )
     if user is None:
         return templates.TemplateResponse(
-            "pages/login.html", {"request": request, "error": "User not found"}
+            "pages/login.html", {"request": request, "error": "Username or password invalid"}
         )
 
     expires = datetime.datetime.now() + datetime.timedelta(
@@ -56,8 +56,9 @@ async def admin_login(
     request.scope["user"] = auth_user
 
     if user.is_operator:
-        return RedirectResponse("/admin/support/")
-    return templates.TemplateResponse("pages/index.html", {"request": request})
+        return RedirectResponse("/admin/support/", status_code=302)
+    # return templates.TemplateResponse("pages/index.html", {"request": request}, status_code=302)
+    return RedirectResponse("/admin/", status_code=302)
 
 
 @router.get("/logout/", name="logout")
@@ -68,4 +69,4 @@ async def admin_logout(
     token = request.cookies.get("session")
     await repo.auth_session.delete_session(token=token)
     request.cookies["session"] = None
-    return RedirectResponse("/admin/")
+    return RedirectResponse("/admin/", status_code=302)
