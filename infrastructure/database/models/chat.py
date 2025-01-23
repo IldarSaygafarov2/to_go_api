@@ -47,7 +47,8 @@ class Message(Base, IntIdPkMixin):
     private_chat_id: Mapped[int] = mapped_column(
         ForeignKey("private_chats.id"), nullable=True
     )
-    content: Mapped[str]
+    content: Mapped[str] = mapped_column(nullable=True)
+    bytes_data: Mapped[bytes] = mapped_column(nullable=True)
     created_at: Mapped[created_at]
 
     sender = relationship(

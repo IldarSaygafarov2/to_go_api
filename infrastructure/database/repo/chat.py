@@ -12,8 +12,8 @@ from .base import BaseRepo
 
 
 class ChatMessageRepo(BaseRepo):
-    async def add_global_message(self, sender_id: int, content: str):
-        stmt = insert(Message).values(sender_id=sender_id, content=content, chat_id=1)
+    async def add_global_message(self, sender_id: int, content: str = None, bytes_data: bytes = None):
+        stmt = insert(Message).values(sender_id=sender_id, content=content, bytes_data=bytes_data, chat_id=1)
         await self.session.execute(stmt)
         await self.session.commit()
 
