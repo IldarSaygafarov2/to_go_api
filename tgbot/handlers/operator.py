@@ -9,9 +9,12 @@ from backend.core.interfaces.support import SupportMessage
 from infrastructure.database.repo.requests import RequestsRepo
 from tgbot.filters.role import RoleFilter
 from tgbot.misc.operator_state import OperatorState
+from backend.core.services.websocket import WebsocketService
 
 operator_router = Router()
 operator_router.message.filter(RoleFilter())
+
+websocket_service = WebsocketService()
 
 
 @operator_router.message(CommandStart())
@@ -33,7 +36,7 @@ async def answer_to_message(
     await call.answer()
 
     text = call.message.text.split(":")[-1].replace("\n", "")
-
+    print(call.from_user.username)
     operator = await repo.operators.get_operator_by_telegram_username(
         telegram_username=call.from_user.username
     )
@@ -64,6 +67,7 @@ async def answer_to_message(message: Message, repo: "RequestsRepo", state: FSMCo
 
     data = await state.get_data()
     room_id = data.get("room_id")
+    print(room_id)
     operator_id = data.get("operator_id")
 
     cached_room = cache.get(f"room:{room_id}")

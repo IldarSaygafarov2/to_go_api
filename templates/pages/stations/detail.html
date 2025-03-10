@@ -79,22 +79,21 @@
                     {% if station.comments %}
                     <ul class="list-group station-comments-list">
                         {% for comment in station.comments %}
-                            <li class="list-group-item station-comments-item">
-                                <div>
-                                    <div><b>Текст</b>: {{ comment.text }}</div>
-                                    <div><b>Дата</b>: {{ comment.created_at }}</div>
-                                    <div><b>Пользователь</b>: {{ comment.user.fullname }}</div>
-                                </div>
-                                <a
-                                        href="{{ url_for('delete_comment', station_id=station.id, comment_id=comment.id) }}"
-                                        class="btn btn-danger">
-                                    Удалить
-                                </a>
-                            </li>
+                        <li class="list-group-item station-comments-item">
+                            <div>
+                                <div><b>Текст</b>: {{ comment.text }}</div>
+                                <div><b>Дата</b>: {{ comment.created_at }}</div>
+                                <div><b>Пользователь</b>: {{ comment.user.fullname }}</div>
+                            </div>
+                            <a href="{{ url_for('delete_comment', station_id=station.id, comment_id=comment.id) }}"
+                                class="btn btn-danger">
+                                Удалить
+                            </a>
+                        </li>
                         {% endfor %}
                     </ul>
                     {% else %}
-                        <h2>No comments</h2>
+                    <h2>No comments</h2>
                     {% endif %}
                 </div>
                 <!-- tab-pane -->

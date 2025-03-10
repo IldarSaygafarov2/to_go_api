@@ -31,8 +31,8 @@ class WebsocketService:
         for connection in self.active_connections:
             try:
                 data = json.dumps(message_json, ensure_ascii=False)
-                if message_json.get('type') == 'bytes':
-                    data = message_json.get('bytes_data').encode()
+                if message_json.get("type") == "bytes":
+                    data = message_json.get("bytes_data").encode()
                     await connection.send_json(message_json)
                 else:
                     await connection.send_text(data)
@@ -53,23 +53,26 @@ class GlobalChatWebsocket:
             while True:
 
                 _data = await websocket.receive()
+                print(_data)
                 # print(user_id)
                 # print(_data)
-                if 'bytes' in _data:
-                    data = _data.get('bytes')
+                if "bytes" in _data:
+                    data = _data.get("bytes")
 
                     await self.repo.chat_messages.add_global_message(
                         sender_id=user_id,
                         bytes_data=data,
                     )
-                    await self.manager.broadcast({
-                        'sender_id': user_id,
-                        'type': 'bytes',
-                        'bytes_data': str(data),
-                    })
+                    await self.manager.broadcast(
+                        {
+                            "sender_id": user_id,
+                            "type": "bytes",
+                            "bytes_data": str(data),
+                        }
+                    )
                 else:
                     # data = await websocket.receive_json()
-                    data = _data.get('text')
+                    data = json.loads(_data.get("text"))
                     await self.repo.chat_messages.add_global_message(
                         sender_id=int(data["sender_id"]),
                         content=data["content"],

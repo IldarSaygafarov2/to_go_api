@@ -31,4 +31,4 @@ class TelegramService:
 
         async with httpx.AsyncClient() as client:
             response = await client.post(url, data=params)
-            print(response.json())
+            return response.json()

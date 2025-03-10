@@ -18,7 +18,6 @@ router = APIRouter(
     tags=["Support"],
 )
 
-
 telegram_service = get_telegram_service()
 
 
@@ -32,14 +31,16 @@ async def get_all_rooms(
 
 @router.post("/{user_id}/send_message")
 async def send_user_message_to_operators(
-    user_id: int,
-    repo: Annotated[RequestsRepo, Depends(get_repo)],
-    cache: Annotated[Redis, Depends(get_redis)],
-    message: SupportMessageCreateDTO = Body(...),
+        user_id: int,
+        repo: Annotated[RequestsRepo, Depends(get_repo)],
+        cache: Annotated[Redis, Depends(get_redis)],
+        message: SupportMessageCreateDTO = Body(...),
 ):
     user = await repo.users.get_user_by_id(user_id=user_id)
 
     operators = await repo.operators.get_all_operators()
+
+    print(operators, user)
     for operator in operators:
         room = await repo.support_room.get_room(
             user_id=user_id, operator_id=operator.id
@@ -61,22 +62,22 @@ async def send_user_message_to_operators(
 
                 cache.set(f"room:{room.id}", json.dumps(room_messages))
 
-        await telegram_service.send_message(
+        telegram_message = await telegram_service.send_message(
             telegram_chat_id=operator.telegram_chat_id,
             message=f"Message from <b>{user.fullname}</b>:\n\n" + message.message,
             user_id=user.id,
         )
+        print(telegram_message)
     return {"is_sent": True}
 
 
 @router.get("/{user_id}/{operator_id}/messages")
 async def get_room_messages(
-    user_id: int,
-    operator_id: int,
-    repo: Annotated[RequestsRepo, Depends(get_repo)],
-    cache: Annotated[Redis, Depends(get_redis)],
+        user_id: int,
+        operator_id: int,
+        repo: Annotated[RequestsRepo, Depends(get_repo)],
+        cache: Annotated[Redis, Depends(get_redis)],
 ):
-
     room = await repo.support_room.get_room(user_id=user_id, operator_id=operator_id)
     room = SupportRoomDTO.model_validate(room, from_attributes=True)
 
@@ -89,8 +90,8 @@ async def get_room_messages(
 
 @router.get("/{room_id}/messages/")
 async def get_room_messages_by_room_id(
-    room_id: int,
-    repo: Annotated[RequestsRepo, Depends(get_repo)],
+        room_id: int,
+        repo: Annotated[RequestsRepo, Depends(get_repo)],
 ):
     messages = await repo.support_messages.get_room_messages(room_id=room_id)
     return messages

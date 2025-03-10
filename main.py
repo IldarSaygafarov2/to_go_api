@@ -15,6 +15,7 @@ from backend.core.services.websocket import (
     GlobalChatWebsocket,
     PrivateChatWebsocket,
     WebsocketService,
+    SupportChatWebsocket,
 )
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.database.setup import create_engine, create_session_pool
@@ -104,6 +105,17 @@ async def websocket_private_chat(
 ):
     private_chat_handler = PrivateChatWebsocket(manager, repo=repo)
     await private_chat_handler.handle_connection(websocket, user_id, recipient_id)
+
+
+@app.websocket("/ws/support/{user_id}/{operator_id}")
+async def websocket_support_chat(
+    websocket: WebSocket,
+    user_id: int,
+    operator_id: int,
+    repo: Annotated[RequestsRepo, Depends(get_repo)],
+):
+    support_chat_handler = SupportChatWebsocket(manager, repo=repo)
+    await support_chat_handler.handle_connection(websocket, user_id, operator_id)
 
 
 app.include_router(api_router)

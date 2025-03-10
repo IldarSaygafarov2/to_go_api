@@ -31,4 +31,4 @@ async def get_support_page_html(request: Request):
     context = {
         "request": request,
     }
-    return templates.TemplateResponse(name="support.html", context=context)
+    return templates.TemplateResponse(name="support_chat.html", context=context)

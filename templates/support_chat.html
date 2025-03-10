@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>support chat</h1>
+
+    <form>
+        <p>опишите вашу проблему и наши операторы ответят</p>
+        <label><input type="text" id="support_message" placeholder="send your message"></label>
+        <button id="send_button" type="button" onclick="sendMessage()">Send</button>
+    </form>
+
+
+    <script>
+        const userId = 2;
+        const operatorId = 2;
+
+        const messageInput = document.getElementById('support_message');
+        const sendButton = document.getElementById('send_button');
+
+        const websocketUrl = `ws://{{ request.headers.host }}/ws/support/${userId}/${operatorId}`;
+
+        const socket = new WebSocket(websocketUrl);
+
+        socket.onopen = function (e) {
+            alert('[open] connection opened')
+        }
+
+        function sendMessage() {
+            const message = messageInput.value;
+            socket.send(message);
+        }
+    </script>
+</body>
+
+</html>
