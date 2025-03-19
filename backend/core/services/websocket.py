@@ -16,6 +16,7 @@ class WebsocketService:
         await websocket.accept()
         self.active_connections.append(websocket)
         self.user_connections[user_id] = websocket
+        print(self.user_connections)
 
     def disconnect(self, websocket: WebSocket, user_id: int):
         self.active_connections.remove(websocket)
@@ -30,16 +31,16 @@ class WebsocketService:
 
     async def broadcast(self, message_json: dict):
         for connection in self.active_connections:
-            try:
-                data = json.dumps(message_json, ensure_ascii=False)
-                if message_json.get("type") == "bytes":
-                    data = message_json.get("bytes_data").encode()
-                    await connection.send_json(message_json)
-                else:
-                    await connection.send_text(data)
-            except WebSocketDisconnect:
+            # try:
+            data = json.dumps(message_json, ensure_ascii=False)
+            if message_json.get("type") == "bytes":
+                data = message_json.get("bytes_data").encode()
+                await connection.send_json(message_json)
+            else:
+                await connection.send_text(data)
+            # except WebSocketDisconnect:
                 # Если подключение было закрыто, удаляем его из активных соединений
-                self.active_connections.remove(connection)
+            self.active_connections.remove(connection)
 
 
 class GlobalChatWebsocket:
@@ -54,9 +55,6 @@ class GlobalChatWebsocket:
             while True:
 
                 _data = await websocket.receive()
-                print(_data)
-                # print(user_id)
-                # print(_data)
                 if "bytes" in _data:
                     data = _data.get("bytes")
 
