@@ -92,6 +92,7 @@ async def websocket_global_chat(
     user_id: int,
     repo: Annotated[RequestsRepo, Depends(get_repo)],
 ):
+    print("AAAAAAA")
     global_chat_handler = GlobalChatWebsocket(manager, repo=repo)
     await global_chat_handler.handle_connection(websocket, user_id)
 

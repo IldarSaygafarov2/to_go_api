@@ -45,11 +45,11 @@ class PlaceDetailDTO(BaseModel):
     phone_number: str
     yandex_map_link: str
     created_at: datetime
-    address: Optional[str]
-    working_hours: Optional[str]
-    fuel_price: Optional[list[FuelDTO]]
-    images: Optional[list[PlaceImageDTO]]
-    comments: Optional[list[PlaceCommentDTO]]
+    address: Optional[str] = None
+    working_hours: Optional[str] = None
+    fuel_price: Optional[list[FuelDTO]] = None
+    images: Optional[list[PlaceImageDTO]] = None
+    comments: Optional[list[PlaceCommentDTO]] = None
     user: UserProfileDTO
 
 

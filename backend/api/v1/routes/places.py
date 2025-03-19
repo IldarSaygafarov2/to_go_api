@@ -14,7 +14,8 @@ from backend.core.interfaces.place import (
     PlaceDetailDTO,
     PlaceNameCoordinateDTO,
     PlaceRatingCreateDTO,
-    PlaceRatingDTO, PlaceDetailV2DTO,
+    PlaceRatingDTO,
+    PlaceDetailV2DTO,
 )
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.utils.helpers import create_images_dir
@@ -44,7 +45,8 @@ async def create_place(
         await repo.place_images.insert_place_image(place_id=place.id, url=str(path))
 
     new_place = await repo.places.get_place(place_id=place.id)
-    return PlaceDetailDTO.model_validate(new_place, from_attributes=True)
+    print(new_place)
+    return PlaceDetailDTO.model_validate(new_place[0], from_attributes=True)
 
 
 @router.get("/")
@@ -121,7 +123,7 @@ async def get_place_detail(
     if rating is None:
         rating = 0
     place = PlaceDetailDTO.model_validate(place, from_attributes=True).model_dump()
-    place.update({'rating': rating})
+    place.update({"rating": rating})
     result = PlaceDetailV2DTO.model_validate(place, from_attributes=True)
     return result
 

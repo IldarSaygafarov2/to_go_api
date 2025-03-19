@@ -33,16 +33,21 @@
     </div>
 
     <script>
-        const userId = 2;
-        const websocketUrl = `ws://{{ request.headers.host }}/ws/global/${userId}`;
+        const userId = 1;
+        const websocketUrl = `wss://app.olmatech.uz/ws/global/${userId}`;
         const fileInput = document.getElementById('file')
         const fileButton = document.getElementById('send_file');
         const statusDiv = document.getElementById('status');
 
         let socket = new WebSocket(websocketUrl);
+        console.log(socket)
 
         socket.onopen = function (e) {
             alert('connection opened')
+        }
+
+        socket.onerror = function (e) {
+            alert(e)
         }
 
         function sendMessage(e) {

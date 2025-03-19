@@ -12,6 +12,7 @@ class WebsocketService:
         self.user_connections = {}
 
     async def connect(self, websocket: WebSocket, user_id: int):
+        print("WEBSOCKET", websocket)
         await websocket.accept()
         self.active_connections.append(websocket)
         self.user_connections[user_id] = websocket
@@ -23,7 +24,7 @@ class WebsocketService:
 
     async def send_personal_message(self, message_json: dict, recipint_id: int):
         websocket: WebSocket = self.user_connections.get(recipint_id)
-        print(websocket)
+        print("WEBSOCKET", websocket)
         if websocket:
             await websocket.send_text(json.dumps(message_json, ensure_ascii=False))
 
