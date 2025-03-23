@@ -5,7 +5,6 @@ from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import selectinload
 
 from infrastructure.database.models.place import Place, PlaceComment, PlaceRating
-
 from .base import BaseRepo
 
 
@@ -74,6 +73,7 @@ class PlaceRepo(BaseRepo):
         )
         result = await self.session.execute(stmt)
         await self.session.commit()
+
         return result.scalar_one()
 
     async def get_places(self, offset: int, limit: int):

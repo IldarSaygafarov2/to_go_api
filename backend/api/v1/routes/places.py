@@ -34,6 +34,8 @@ async def create_place(
 ):
 
     data = place_data.model_dump()
+    fuel_price = data.pop("fuel_price")
+
     place = await repo.places.insert_place(**data)
 
     images_dir = create_images_dir(f"places/{place.row_id}/")
@@ -44,8 +46,16 @@ async def create_place(
             f.write(await image.read())
         await repo.place_images.insert_place_image(place_id=place.id, url=str(path))
 
+
+    for price in fuel_price:
+        await repo.fuel.insert_fuel_price(
+            fuel_type=price.get("fuel_type"),
+            price=price.get("price"),
+            place_id=place.id
+        )
+
     new_place = await repo.places.get_place(place_id=place.id)
-    print(new_place)
+
     return PlaceDetailDTO.model_validate(new_place[0], from_attributes=True)
 
 

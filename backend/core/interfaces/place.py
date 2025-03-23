@@ -4,7 +4,7 @@ from typing import Optional
 
 from pydantic import BaseModel, model_validator
 
-from backend.core.interfaces.fuel import FuelDTO
+from backend.core.interfaces.fuel import FuelDTO, FuelCreateDTO
 from backend.core.interfaces.user import UserProfileDTO
 
 
@@ -74,8 +74,11 @@ class PlaceCreateDTO(BaseModel):
     name: str
     address: str
     category: str
-    working_hours: Optional[str]
     user_id: int
+    working_hours: Optional[str] = None
+    phone_number: Optional[str] = None
+    coordinates: Optional[str] = None
+    yandex_map_link: Optional[str] = None
     has_gasoline: bool = False
     has_ai_80: bool = False
     has_ai_91: bool = False
@@ -87,6 +90,8 @@ class PlaceCreateDTO(BaseModel):
     has_wc: Optional[bool] = False
     has_shop: Optional[bool] = False
     has_car_wash: Optional[bool] = False
+
+    fuel_price: Optional[list[FuelCreateDTO]]
 
     @model_validator(mode="before")
     @classmethod
