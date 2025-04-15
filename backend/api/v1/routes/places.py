@@ -46,12 +46,11 @@ async def create_place(
             f.write(await image.read())
         await repo.place_images.insert_place_image(place_id=place.id, url=str(path))
 
-
     for price in fuel_price:
         await repo.fuel.insert_fuel_price(
             fuel_type=price.get("fuel_type"),
             price=price.get("price"),
-            place_id=place.id
+            place_id=place.id,
         )
 
     new_place = await repo.places.get_place(place_id=place.id)
@@ -96,6 +95,7 @@ async def get_places(
                 "working_hours": place.working_hours,
                 "rating": _rating,
                 "reviews_count": count,
+                "preview": place.images[0].url if len(place.images) > 0 else "",
                 "fuel_price": place.fuel_price,
             }
         )

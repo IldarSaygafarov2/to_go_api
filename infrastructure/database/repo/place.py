@@ -79,7 +79,7 @@ class PlaceRepo(BaseRepo):
     async def get_places(self, offset: int, limit: int):
         stmt = (
             select(Place)
-            .options(selectinload(Place.fuel_price))
+            .options(selectinload(Place.fuel_price), selectinload(Place.images))
             .offset(offset)
             .limit(limit)
         )
@@ -87,7 +87,9 @@ class PlaceRepo(BaseRepo):
         return result.scalars().all()
 
     async def get_filtered_places(self, filters: dict):
-        _stmt = select(Place).options(selectinload(Place.fuel_price))
+        _stmt = select(Place).options(
+            selectinload(Place.fuel_price), selectinload(Place.images)
+        )
         name_field = filters.get("name")
         if name_field is not None:
             filters.pop("name")
@@ -128,12 +130,8 @@ class PlaceRepo(BaseRepo):
 
     async def update_place(self, place_id: int, **fields):
         stmt = (
-            update(Place)
-            .where(Place.id == place_id)
-            .values(**fields)
-            .returning(Place)
+            update(Place).where(Place.id == place_id).values(**fields).returning(Place)
         )
         result = await self.session.execute(stmt)
         await self.session.commit()
         return result.scalar_one()
-

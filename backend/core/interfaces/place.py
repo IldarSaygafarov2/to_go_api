@@ -17,6 +17,7 @@ class PlaceListDTO(BaseModel):
     coordinates: Optional[str]
     rating: float
     reviews_count: int
+    preview: Optional[str] = None
     fuel_price: Optional[list[FuelDTO]]
 
 
