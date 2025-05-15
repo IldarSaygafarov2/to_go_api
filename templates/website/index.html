@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>POTCHO</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <link href="{{ url_for('static', path='website/assets/img/logo.png') }}" rel="icon" />
+
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet" />
+  <link href="{{ url_for('static', path='website/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', path='website/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}"
+    rel="stylesheet" />
+  <link href="{{ url_for('static', path='website/assets/vendor/aos/aos.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', path='website/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', path='website/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet" />
+
+  <link href="{{ url_for('static', path='website/assets/css/main.css') }}" rel="stylesheet" />
+</head>
+
+<body class="index-page">
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="{{ url_for('static', path='website/assets/img/logo.png') }}" alt="" />
+        <h1 class="sitename">POTCHO</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Главная</a></li>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section id="hero" class="hero section">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+            <h1>POTCHO — найди ближайшую заправку за секунды</h1>
+            <p>
+              Умное мобильное приложение для быстрого поиска АЗС по всему
+              Узбекистану
+            </p>
+            <div class="d-flex">
+              <a href="#about" class="btn-get-started">Узнать больше</a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
+            <img src="{{ url_for('static', path='website/assets/img/intro.png') }}" class="img-fluid animated"
+              alt="Изображение приложения POTCHO" style="max-width: 80%" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-services" class="featured-services section">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-geo-alt-fill icon"></i></div>
+              <h4><a href="#" class="stretched-link">Поиск заправок</a></h4>
+              <p>
+                Находите ближайшие АЗС по вашему текущему местоположению с
+                точной навигацией на карте.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-clock-history icon"></i></div>
+              <h4>
+                <a href="#" class="stretched-link">История посещений</a>
+              </h4>
+              <p>
+                Сохраняйте историю заправок, чтобы быстро возвращаться к
+                проверенным и удобным местам.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-fuel-pump-fill icon"></i>
+              </div>
+              <h4>
+                <a href="#" class="stretched-link">Информация о топливе</a>
+              </h4>
+              <p>
+                Сравнивайте цены на бензин, дизель и газ в реальном времени и
+                выбирайте выгодные предложения.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>О приложении</span>
+        <h2>О POTCHO</h2>
+        <p>
+          Мы помогаем водителям быстро находить удобные и выгодные заправки по
+          всему Узбекистану
+        </p>
+      </div>
+      <!-- End Section Title -->
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+            <h3>Умное решение для водителей Узбекистана</h3>
+            <p class="fst-italic">
+              POTCHO экономит ваше время и деньги, подбирая заправки рядом с
+              вами — быстро, точно и удобно.
+            </p>
+            <ul>
+              <li>
+                <i class="bi bi-check2-all"></i>
+                <span>Моментальный поиск АЗС рядом с вами</span>
+              </li>
+              <li>
+                <i class="bi bi-check2-all"></i>
+                <span>Информация о типах топлива, ценах и режиме работы</span>
+              </li>
+              <li>
+                <i class="bi bi-check2-all"></i>
+                <span>Поддержка карты, чата и отзывов пользователей</span>
+              </li>
+            </ul>
+            <p>
+              Мы делаем вождение проще. Скачайте POTCHO и найдите заправку,
+              когда она действительно нужна.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="stats section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-duration="2"
+                class="purecounter"></span>
+              <p>Пользователей</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1500" data-purecounter-duration="2"
+                class="purecounter"></span>
+              <p>АЗС на карте</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="50000" data-purecounter-duration="2"
+                class="purecounter"></span>
+              <p>Запросов в день</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Часа поддержки</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <span>Наши возможности</span>
+        <h2>Что умеет POTCHO</h2>
+        <p>
+          Приложение создано для удобного и быстрого поиска заправок по всей
+          стране
+        </p>
+      </div>
+      <!-- End Section Title -->
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-geo-alt-fill"></i>
+              </div>
+              <h3>Поиск ближайших АЗС</h3>
+              <p>
+                Найди заправки рядом с тобой за секунды — на карте или в виде
+                списка с расстоянием и временем в пути.
+              </p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-fuel-pump-fill"></i>
+              </div>
+              <h3>Типы топлива и цены</h3>
+              <p>
+                Смотри доступные виды топлива и актуальные цены перед поездкой
+                на заправку.
+              </p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <h3>История посещений</h3>
+              <p>
+                Сохраняй любимые АЗС и отслеживай историю заправок в личном
+                кабинете.
+              </p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-wallet2"></i>
+              </div>
+              <h3>Оплата онлайн</h3>
+              <p>
+                Оплачивай заправку заранее прямо из приложения через Click,
+                Payme или Uzum Bank.
+              </p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-gift-fill"></i>
+              </div>
+              <h3>Бонусы и акции</h3>
+              <p>
+                Получай бонусы за частое использование и узнавай первым о
+                скидках и специальных предложениях.
+              </p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-chat-dots-fill"></i>
+              </div>
+              <h3>Поддержка и отзывы</h3>
+              <p>
+                Оценивай заправки, оставляй отзывы и получай помощь прямо в
+                приложении или через Telegram-бота.
+              </p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section light-background">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>Отзывы</span>
+        <h2>Что говорят пользователи</h2>
+        <p>
+          Наши клиенты делятся опытом использования приложения POTCHO для
+          поиска и оплаты заправок
+        </p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper init-swiper" data-speed="600" data-delay="5000"
+          data-breakpoints='{ "320": { "slidesPerView": 1, "spaceBetween": 40 }, "1200": { "slidesPerView": 3, "spaceBetween": 20 } }'>
+          <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                },
+                "breakpoints": {
+                  "320": {
+                    "slidesPerView": 1,
+                    "spaceBetween": 40
+                  },
+                  "1200": {
+                    "slidesPerView": 3,
+                    "spaceBetween": 20
+                  }
+                }
+              }
+            </script>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Очень удобное приложение! Быстро нахожу ближайшую АЗС и
+                    могу оплатить заправку онлайн — экономит время.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Понравилась функция отображения цен на топливо — всегда
+                    могу выбрать выгодный вариант рядом с работой.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Интерфейс простой и понятный, а история посещений
+                    помогает быстро вернуться к любимым заправкам.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Поддержка всегда на связи, помогли решить вопрос быстро.
+                    Рекомендую всем водителям!</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Люблю, что можно оставить отзыв и прочитать оценки других
+                    — помогает сделать правильный выбор.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- /Testimonials Section -->
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section accent-background">
+      <div class="container">
+        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-10">
+            <div class="text-center">
+              <h3>Начните экономить время уже сегодня!</h3>
+              <p>
+                Скачайте приложение POTCHO и легко находите ближайшие АЗС с
+                лучшими ценами. Оплачивайте заправку онлайн — быстро, удобно и
+                безопасно.
+              </p>
+              <a class="cta-btn" href="#">Скачать POTCHO</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Call To Action Section -->
+
+    <!-- Секция Контакты -->
+    <section id="contact" class="contact section">
+      <!-- Заголовок секции -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>Контакты</span>
+        <h2>Контакты</h2>
+        <p>Свяжитесь с нами, если у вас есть вопросы или предложения</p>
+      </div>
+      <!-- Конец заголовка секции -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-7">
+            <form action="send_email/" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Ваше имя</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required />
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Ваш Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required />
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Тема</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required />
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Сообщение</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Загрузка</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">
+                    Ваше сообщение отправлено. Спасибо!
+                  </div>
+
+                  <button type="submit">Отправить сообщение</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Конец формы обратной связи -->
+        </div>
+      </div>
+    </section>
+    <!-- /Секция Контакты -->
+  </main>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', path='website/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', path='website/assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', path='website/assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', path='website/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', path='website/assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ url_for('static', path='website/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', path='website/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', path='website/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', path='website/assets/js/main.js') }}"></script>
+</body>
+
+</html>

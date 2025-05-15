@@ -1,8 +1,9 @@
 from typing import Annotated
 
-from fastapi.responses import RedirectResponse
+from fastapi.responses import JSONResponse
+from fastapi.templating import Jinja2Templates
 import uvicorn
-from fastapi import Depends, FastAPI, WebSocket, Request
+from fastapi import Depends, FastAPI, Form, WebSocket, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
@@ -19,6 +20,10 @@ from backend.core.services.websocket import (
 )
 from infrastructure.database.repo.requests import RequestsRepo
 from infrastructure.database.setup import create_engine, create_session_pool
+from backend.core.interfaces.gmail import GmailMessageSchema
+from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
+
+# from send_email import send_email_background, send_email_async
 
 
 async def connect_to_session():
@@ -34,6 +39,8 @@ app = FastAPI()
 app.mount("/media/", StaticFiles(directory="media"), name="media")
 app.mount("/static/", StaticFiles(directory="static"), name="static")
 
+templates = Jinja2Templates(directory="templates")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -41,6 +48,45 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/")
+async def get_home_page(request: Request):
+    print(request)
+    return templates.TemplateResponse(
+        request, "website/index.html", {"request": request}
+    )
+
+
+conf = ConnectionConfig(
+    MAIL_USERNAME=config.gmail.mail_username,
+    MAIL_PASSWORD=config.gmail.mail_password,
+    MAIL_FROM=config.gmail.mail_from,
+    MAIL_PORT=config.gmail.mail_port,
+    MAIL_SERVER=config.gmail.mail_server,
+    MAIL_FROM_NAME=config.gmail.mail_from_name,
+    MAIL_STARTTLS=True,
+    MAIL_SSL_TLS=False,
+    USE_CREDENTIALS=True,
+    VALIDATE_CERTS=True,
+)
+
+
+@app.post("/send_email")
+async def send_form_email(
+    request: Request, form_data: Annotated[GmailMessageSchema, Form()]
+):
+    message = MessageSchema(
+        subject=form_data.subject,
+        recipients=[config.gmail.mail_from],
+        body=form_data.message,
+        subtype="plain",
+    )
+    fm = FastMail(conf)
+    await fm.send_message(message)
+    return templates.TemplateResponse(
+        request, "website/index.html", {"request": request, "is_sent": True}
+    )
 
 
 @app.middleware("http")

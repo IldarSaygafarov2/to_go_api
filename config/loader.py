@@ -9,6 +9,8 @@ from config.redis_config import RedisConfig
 from config.sms_config import SMSConfig
 from config.tg_config import TgConfig
 from config.session import SessionConfig
+from config.gmail_config import GmailConfig
+
 
 @dataclass
 class Config:
@@ -20,6 +22,7 @@ class Config:
     telegram: TgConfig
     redis: RedisConfig
     session: SessionConfig
+    gmail: GmailConfig
 
 
 def load_config(path: Optional[str] = None) -> "Config":
@@ -33,6 +36,7 @@ def load_config(path: Optional[str] = None) -> "Config":
     access_token = AccessTokenConfig.from_env(env)
     telegram = TgConfig.from_env(env)
     redis_config = RedisConfig.from_env(env)
+    gmail_config = GmailConfig.from_env(env)
     api_prefix = ApiPrefix()
 
     return Config(
@@ -44,4 +48,5 @@ def load_config(path: Optional[str] = None) -> "Config":
         telegram=telegram,
         redis=redis_config,
         session=session,
+        gmail=gmail_config,
     )
