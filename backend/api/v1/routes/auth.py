@@ -53,7 +53,7 @@ async def send_code(
 
     new_verified = await repo.users_verification.insert_verification_code(
         phone_number=user_data.phone_number,
-        code=verification_code,
+        code=verification_code if not user_data.phone_number == config.sms.main_phone_number else config.sms.main_code,
     )
 
     sms_service.send_message(
